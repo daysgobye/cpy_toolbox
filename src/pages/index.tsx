@@ -4,7 +4,9 @@ import Layout from "../components/layout"
 import "../styles/98.css"
 import { useEffect } from "react"
 import TerminalView from "../views/terminal";
-import { IdeViewWindow, TerminalViewWindow, WindowProps } from "../views/windows";
+import { IdeViewWindow, SettingsViewWindow, TerminalViewWindow, WindowProps } from "../views/windows";
+import { AppManager } from "../logic/appManager"
+const appManager = AppManager.getInstance()
 
 type Window = {
   Component: (props: WindowProps) => JSX.Element
@@ -47,6 +49,7 @@ export default function IndexPage() {
       }
       handleKeyEvent(e);
     }
+    appManager.report()
     document.addEventListener("keyup", handleKeyDown);
 
     return function cleanup() {
@@ -70,10 +73,11 @@ export default function IndexPage() {
             <div className="flex flex-col justify-end h-full w-[85%]">
               <button className="flex p-3" onClick={() => launchApp(TerminalViewWindow)}>terminal</button>
               <button className="flex p-3" onClick={() => launchApp(IdeViewWindow)}>IDE</button>
-              <button className="flex p-3" onClick={() => launchApp(TerminalViewWindow)}>Settings</button>
+              <button className="flex p-3" onClick={() => launchApp(SettingsViewWindow)}>Settings</button>
               <hr className="h-px bg-stone-400 border-0 " />
               <hr className="h-px bg-stone-100 border-0 " />
-              <button className="flex p-3" onClick={() => { }}>close</button>
+              <button className="flex p-3" onClick={() => { appManager.connection.open() }}>Open Serial</button>
+              <button className="flex p-3" onClick={() => { appManager.connection.close() }}>Close Serial</button>
             </div>
 
           </div>

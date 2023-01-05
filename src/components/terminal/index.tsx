@@ -7,7 +7,7 @@ type Props = {
 }
 const Terminal = (props: Props) => {
     const terRef = useRef(null),
-        [data, setData] = React.useState<string[]>([])
+        [data, setData] = React.useState<string[]>(connection.responses)
     const scrollToBottom = () => {
         if (terRef.current) {
             //@ts-ignore

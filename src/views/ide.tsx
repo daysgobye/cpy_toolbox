@@ -4,9 +4,9 @@ import Terminal from "../components/terminal"
 import { useEffect } from "react"
 import Editor from "../components/editor"
 import FileTree from "../components/fileTree"
-import Ide, { ConnectionType } from "../logic/ide"
+import Ide from "../logic/ide"
 const connection = Serial.getInstance()
-const ideManager = Ide.getInstance(ConnectionType.Serial)
+const ideManager = Ide.getInstance()
 export default function IdeView() {
     const
         [tree, setTree] = React.useState(ideManager.fileSystem),

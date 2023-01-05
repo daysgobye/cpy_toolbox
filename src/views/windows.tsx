@@ -2,6 +2,7 @@ import * as React from "react"
 import Window from "floating-window-ui";
 import TerminalView from "./terminal";
 import IdeView from "./ide";
+import SettingsView from "./settings";
 export type WindowProps = {
     close: (index: number) => void
     index: number
@@ -37,6 +38,24 @@ export const IdeViewWindow = (props: WindowProps) => {
             }}
         >
             <IdeView />
+        </Window>
+    )
+}
+
+export const SettingsViewWindow = (props: WindowProps) => {
+    return (
+        <Window
+            id="settings-window"
+            height={400}
+            width={400}
+            resizable={true}
+            titleBar={{
+                icon: "𑪡",
+                title: "Settings",
+                buttons: { minimize: true, maximize: true, close: () => props.close(props.index) },
+            }}
+        >
+            <SettingsView />
         </Window>
     )
 }

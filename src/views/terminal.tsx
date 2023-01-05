@@ -66,7 +66,6 @@ export default function TerminalView() {
             }
             handleKeyEvent(e);
         }
-        connection.reconnect()
         document.addEventListener("keyup", handleKeyDown);
 
         return function cleanup() {

@@ -4,18 +4,21 @@ import Toggle from "../components/toggle";
 
 const settings = ProgramSettings.getInstance()
 
-export default function TerminalView() {
+export default function SettingsView() {
     const
         [debug, setDebug] = React.useState(settings.debug),
         [autoConnect, setAutoConnect] = React.useState(settings.autoConnect),
-        [connectionType, setConnectionType] = React.useState(settings.connectionType),
+        [autoFileTree, setAutoFileTree] = React.useState(settings.autoFileTree),
+        [connectionType, setConnectionType] = React.useState(settings.connectionType)
 
 
     const updateState = () => {
         setDebug(settings.debug)
         setAutoConnect(settings.autoConnect)
         setConnectionType(settings.connectionType)
+        setAutoFileTree(settings.autoFileTree)
     }
+
     React.useEffect(() => {
         settings.Subscribe(updateState)
     })
@@ -28,17 +31,22 @@ export default function TerminalView() {
             <Toggle value={autoConnect} onChange={function (newValue: boolean): void {
                 settings.autoConnect = newValue
             }} label={"auto connect"} />
+            <Toggle value={autoFileTree} onChange={function (newValue: boolean): void {
+                settings.autoFileTree = newValue
+            }} label={"auto get File Tree"} />
 
             <fieldset onChange={(e) => {
-                console.log(e)
+                //@ts-ignore
+                const value: ConnectionType = e.target.value
+                settings.connectionType = value
             }}>
                 <legend>IDE Connection Type</legend>
                 <div className="field-row">
-                    <input id="radio13" type="radio" name="File" />
+                    <input id="radio13" type="radio" checked={connectionType == 1} value={1} name="connectionType" />
                     <label htmlFor="radio13">File API</label>
                 </div>
                 <div className="field-row">
-                    <input id="radio14" type="radio" name="Serial" />
+                    <input id="radio14" type="radio" checked={connectionType == 0} value={0} name="connectionType" />
                     <label htmlFor="radio14">Serial API</label>
                 </div>
 

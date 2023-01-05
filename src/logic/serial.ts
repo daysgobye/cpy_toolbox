@@ -1,12 +1,13 @@
 //@ts-ignore
 import { WebSerial } from "./WebSerial"
 import { delay } from "./helper";
+import { Subscribable } from "./subscribable";
 export enum ControlCodes {
     CtrlC = "\x03",
     CtrlD = "\x04",
     Space = "\x20"
 }
-export class Serial {
+export class Serial extends Subscribable {
     private static instance: Serial;
 
     connected: boolean = false
@@ -16,28 +17,27 @@ export class Serial {
     canSend: boolean
     renderData: undefined | ((data: string) => void) = undefined
     private constructor() {
+        super();
         //@ts-ignore
         this.port = new WebSerial(this.communicate);
         this.canSend = true
-        // this.serial = navigator.serial
-        // this.renderData = renderData
-        // if (this.serial !== undefined) {
-
-        // }
-
     }
+
     public static getInstance(): Serial {
         if (!Serial.instance) {
+            console.log("making a new one")
             Serial.instance = new Serial();
         }
         return Serial.instance;
     }
+
     handleResponse = (returnFromPort: string) => {
         this.responses.push(returnFromPort)
         if (this.renderData) {
             console.log("adding line")
             this.renderData(returnFromPort)
         }
+        this.updateSubScribers()
     }
     communicate = (msg: string) => {
         if (this.renderData) {
@@ -57,9 +57,15 @@ export class Serial {
     mainloop = () => {
         if (this.port) {
             if (this.port.opened()) {
-                this.connected = true
+                if (!this.connected) {
+                    this.connected = true
+                    this.updateSubScribers()
+                }
             } else {
-                this.connected = false
+                if (this.connected) {
+                    this.connected = false
+                    this.updateSubScribers()
+                }
             }
             this.readPort()
         }

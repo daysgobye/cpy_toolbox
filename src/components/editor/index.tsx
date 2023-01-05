@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import Ide, { ConnectionType } from "../../logic/ide";
-const ideManager = Ide.getInstance(ConnectionType.Serial)
+import Ide from "../../logic/ide";
+
+const ideManager = Ide.getInstance()
 
 type Props = {
     path: string
@@ -13,7 +14,6 @@ const Editor = (props: Props) => {
     ), [subId, setSubId] = React.useState("")
 
     const updateState = async () => {
-        console.log("told to update", ideManager)
         const newFile = await ideManager.getFile(props.path)
         setCode(newFile)
     }

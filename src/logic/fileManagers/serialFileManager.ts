@@ -1,42 +1,27 @@
-import { comparStrings, delay, escapeCharacters } from "./helper";
-import { Serial } from "./serial";
-import { Subscribable } from "./subscribable";
-import { ConnectionType, FileTreeData } from "./types";
+import { comparStrings, delay, escapeCharacters } from "../helper";
+import { Serial } from "../serial";
+import { FileTreeData } from "../types";
+import IFileManager from "./ifileManager";
 
-
-class Ide extends Subscribable {
-    private static instance: Ide;
-    files = new Map<string, string>
-    connection: Serial;
-    fileSystem: FileTreeData = {
-        title: "unset",
-        key: "unset",
-        children: []
-    }
-    connectionType: ConnectionType = ConnectionType.Serial
+export default class SerialFileManager implements IFileManager {
+    connection: any;
+    connected: boolean = false
+    haveFileSystem: boolean = false
     gotRepl: boolean = false
     inUse: boolean = false
-    changesMade: boolean = false
+
     constructor() {
-        super()
-        console.log("WE need this", Serial)
         this.connection = Serial.getInstance()
-
     }
-    public static getInstance(): Ide {
-        if (!Ide.instance) {
-            Ide.instance = new Ide();
+    waitUntilCanUse = async () => {
+        while (this.inUse) {
+            await delay(100)
         }
-        return Ide.instance;
+        return true
     }
-    public get hasFileSystem() {
-        if (this.fileSystem.title === "unset") {
-            return false
-        } else {
-            return true
-        }
+    setUsing = (newValue: boolean) => {
+        this.inUse = newValue
     }
-
     getReplConnection = async () => {
         if (this.gotRepl) {
             return await delay()
@@ -55,19 +40,14 @@ class Ide extends Subscribable {
         }
 
     }
-    waitUntilCanUse = async () => {
-        while (this.inUse) {
-            await delay()
-        }
-        return true
+    open = () => {
+        this.connection.open()
     }
-    setUsing = (newValue: boolean) => {
-        this.inUse = newValue
+    close = () => {
+        this.connection.close()
     }
-    private getFileApiFileSystem = async () => {
 
-    }
-    private getSerialFileSystem = async () => {
+    getFileSystem = async () => {
         const getFiles = async (path: string) => {
             await delay()
             let files: string = await this.connection.sendAndStealResponse(`print(os.listdir("${path}"))`)
@@ -114,19 +94,9 @@ class Ide extends Subscribable {
         const data = await possessFiles(files, "/")
         this.setUsing(false)
         this.connection.toggleLock(false)
-        this.fileSystem = data
-        this.updateSubScribers()
+        return data
     }
-    getFileSystem = () => {
-        if (this.connectionType === ConnectionType.Serial) {
-            this.getSerialFileSystem()
-        }
-        if (this.connectionType === ConnectionType.FileApi) {
-            this.getFileApiFileSystem()
-        }
-    }
-    private getSerialFile = async (path: any) => {
-
+    readFile = async (path: string) => {
         const getLine = async (lineNumber: number) => {
             console.log("getting line", lineNumber)
             this.connection.writeStringToByte(`print(l[${lineNumber}])`)
@@ -159,34 +129,7 @@ class Ide extends Subscribable {
         const file = filtered.join("")
         return file
     }
-
-    private getFileApiFile = async (path: any) => {
-        return ""
-    }
-
-    getFile = async (path: any): Promise<string> => {
-        if (!this.files.has(path)) {
-            if (this.connectionType === ConnectionType.Serial) {
-                const file = await this.getSerialFile(path)
-                this.files.set(path, file)
-                return file
-            }
-            if (this.connectionType === ConnectionType.FileApi) {
-                const file = await this.getFileApiFile(path)
-                this.files.set(path, file)
-                return file
-
-            } else {
-                return ""
-            }
-        } else {
-            const file = `${this.files.get(path)}`
-            return file
-        }
-
-    }
-
-    private saveSerialFile = async (path: string, newFile: string) => {
+    writeFile = async (path: string, newFile: string) => {
         const checkSum = true
         await this.waitUntilCanUse()
         this.setUsing(true)
@@ -206,7 +149,7 @@ class Ide extends Subscribable {
         this.setUsing(false)
         this.connection.toggleLock(false)
         if (checkSum) {
-            const savedFile = await this.getSerialFile(path)
+            const savedFile = await this.readFile(path)
             if (comparStrings(savedFile, newFile)) {
                 this.connection.communicate(`ToolBox Info: File Saved! ${path} was saved successfully.`)
             } else {
@@ -215,35 +158,4 @@ class Ide extends Subscribable {
         }
     }
 
-    private saveFileApiFile = async (path: string, newFile: string) => {
-        return ""
-    }
-
-    saveFile = async (path: string) => {
-        const fileToBeSaved = await this.getFile(path)
-        if (this.connectionType === ConnectionType.Serial) {
-            console.log({ path, fileToBeSaved })
-            const file = await this.saveSerialFile(path, fileToBeSaved)
-
-        }
-        if (this.connectionType === ConnectionType.FileApi) {
-            const file = await this.saveFileApiFile(path, fileToBeSaved)
-
-
-        }
-
-    }
-
-    makeNewFile = (path: string, name: string) => {
-
-    }
-
-    updateFile = (path: string, newFile: string) => {
-        this.files.set(path, newFile)
-        this.changesMade = true
-        this.updateSubScribers()
-
-    }
 }
-
-export default Ide
