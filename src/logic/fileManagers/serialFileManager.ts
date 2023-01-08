@@ -7,11 +7,11 @@ export default class SerialFileManager implements IFileManager {
     connection: any;
     connected: boolean = false
     haveFileSystem: boolean = false
-    gotRepl: boolean = false
     inUse: boolean = false
 
     constructor() {
         this.connection = Serial.getInstance()
+        this.connected = this.connection.connected
     }
     waitUntilCanUse = async () => {
         while (this.inUse) {
@@ -22,29 +22,14 @@ export default class SerialFileManager implements IFileManager {
     setUsing = (newValue: boolean) => {
         this.inUse = newValue
     }
-    getReplConnection = async () => {
-        if (this.gotRepl) {
-            return await delay()
-        } else {
-            this.connection.toggleLock(true)
-            this.connection.ctrld()
-            await delay()
-            this.connection.ctrlc()
-            await delay()
-            this.connection.ctrlc()
-            await delay()
-            this.connection.write("\r\n")
-            this.connection.toggleLock(false)
-            this.gotRepl = true
-            return await delay()
-        }
 
-    }
     open = () => {
         this.connection.open()
+        this.connected = true
     }
     close = () => {
         this.connection.close()
+        this.connected = false
     }
 
     getFileSystem = async () => {
@@ -87,13 +72,14 @@ export default class SerialFileManager implements IFileManager {
         }
         await this.waitUntilCanUse()
         this.setUsing(true)
-        await this.getReplConnection()
+        await this.connection.getReplConnection()
         this.connection.toggleLock(true)
         this.connection.writeStringToByte("import os")
         const files = await getFiles("/")
         const data = await possessFiles(files, "/")
         this.setUsing(false)
         this.connection.toggleLock(false)
+        this.haveFileSystem = true
         return data
     }
     readFile = async (path: string) => {
@@ -104,7 +90,7 @@ export default class SerialFileManager implements IFileManager {
         }
         await this.waitUntilCanUse()
         this.setUsing(true)
-        await this.getReplConnection()
+        await this.connection.getReplConnection()
 
         this.connection.toggleLock(true)
         this.connection.writeStringToByte("import os")
@@ -133,7 +119,7 @@ export default class SerialFileManager implements IFileManager {
         const checkSum = true
         await this.waitUntilCanUse()
         this.setUsing(true)
-        await this.getReplConnection()
+        await this.connection.getReplConnection()
         this.connection.toggleLock(true)
         this.connection.writeStringToByte("import os")
         await delay()

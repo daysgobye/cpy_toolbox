@@ -15,6 +15,7 @@ export class Serial extends Subscribable {
     loop: any = undefined
     responses: string[] = []
     canSend: boolean
+    gotRepl: boolean = false
     renderData: undefined | ((data: string) => void) = undefined
     private constructor() {
         super();
@@ -29,6 +30,25 @@ export class Serial extends Subscribable {
             Serial.instance = new Serial();
         }
         return Serial.instance;
+    }
+
+    getReplConnection = async () => {
+        if (this.gotRepl) {
+            return await delay()
+        } else {
+            this.toggleLock(true)
+            this.ctrld()
+            await delay()
+            this.ctrlc()
+            await delay()
+            this.ctrlc()
+            await delay()
+            this.write("\r\n")
+            this.toggleLock(false)
+            this.gotRepl = true
+            return await delay()
+        }
+
     }
 
     handleResponse = (returnFromPort: string) => {

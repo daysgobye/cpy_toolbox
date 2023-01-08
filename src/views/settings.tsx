@@ -1,6 +1,7 @@
 import * as React from "react"
 import { ProgramSettings } from "../logic/programSettings";
 import Toggle from "../components/toggle";
+import { ConnectionType } from "../logic/types";
 
 const settings = ProgramSettings.getInstance()
 
@@ -42,11 +43,11 @@ export default function SettingsView() {
             }}>
                 <legend>IDE Connection Type</legend>
                 <div className="field-row">
-                    <input id="radio13" type="radio" checked={connectionType == 1} value={1} name="connectionType" />
+                    <input id="radio13" type="radio" checked={connectionType == ConnectionType.FileApi} value={ConnectionType.FileApi} name="connectionType" />
                     <label htmlFor="radio13">File API</label>
                 </div>
                 <div className="field-row">
-                    <input id="radio14" type="radio" checked={connectionType == 0} value={0} name="connectionType" />
+                    <input id="radio14" type="radio" checked={connectionType == ConnectionType.Serial} value={ConnectionType.Serial} name="connectionType" />
                     <label htmlFor="radio14">Serial API</label>
                 </div>
 

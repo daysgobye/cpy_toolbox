@@ -11,7 +11,7 @@ export default function IdeView() {
     const
         [tree, setTree] = React.useState(ideManager.fileSystem),
         [subId, setSubId] = React.useState(""),
-        [openedFiles, setOpenedFiles] = React.useState<string[]>([]),
+        [openedFiles, setOpenedFiles] = React.useState<Set<string>>(new Set()),
         [selectedFile, setSelectedFile] = React.useState("")
 
 
@@ -25,20 +25,21 @@ export default function IdeView() {
         ideManager.saveFile(selectedFile)
     }
     const open = () => {
-        if (connection.connected) {
+        if (ideManager.connected) {
             ideManager.getFileSystem()
         }
         else {
-            connection.open()
+            ideManager.open()
         }
     }
 
     const selectFile = async (selected: any, info: any) => {
         console.log(selected, info, info.selectedNodes.hasOwnProperty("children"))
         if (!info.selectedNodes.hasOwnProperty("children")) {
-            ideManager.getFile(selected)
-            setOpenedFiles([selected, ...openedFiles])
-            setSelectedFile(selectedFile)
+            ideManager.getFile(selected[0])
+            const tempOpenFiles = [selected[0], ...openedFiles]
+            setOpenedFiles(new Set(tempOpenFiles))
+            setSelectedFile(selected[0])
 
         }
     }
@@ -80,14 +81,16 @@ export default function IdeView() {
         </div>
 
         <div className="flex h90">
-            <div className="w-[20%]">
+            <div className="w20">
                 <FileTree tree={[tree]}
                     selectFile={selectFile} />
             </div>
-            <div className="w-[80%] h100">
+            <div className="w80 h100">
                 <div className="tabs">
-                    {openedFiles.map(path => (
-                        <a key={path} onClick={() => setSelectedFile(path)} className={`tab tab-lifted ${selectedFile === path ? "tab-active" : ""}`}>{path}</a>
+                    {[...openedFiles].map((path, i) => (
+                        <a key={path + i} onClick={() => setSelectedFile(path)}
+                            className={`tab tab-lifted ${selectedFile === path ? "tab-active" : ""}`}
+                        >{path}</a>
                     ))}
                 </div>
                 {selectedFile !== "" ? <Editor path={selectedFile} /> : ""}

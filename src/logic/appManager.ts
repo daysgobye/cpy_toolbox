@@ -35,7 +35,7 @@ export class AppManager {
     }
     settingsSubscription = () => {
         if (this.settings.connectionType !== this.ideManager.connectionType) {
-            this.ideManager.connectionType = this.settings.connectionType
+            this.ideManager.changeConnectionType(this.settings.connectionType)
         }
         if (this.settings.autoConnect && !this.connection.connected) {
             this.connection.reconnect()
