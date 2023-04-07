@@ -108,4 +108,13 @@ export default class FileApiFileManager implements IFileManager {
         }
     }
 
+    makeDir = (path: string, name: string) => {
+        window.alert("not implemented")
+
+    }
+    makeFile = (path: string, name: string) => {
+        window.alert("not implemented")
+
+    }
+
 }

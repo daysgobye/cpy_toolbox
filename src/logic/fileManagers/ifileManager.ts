@@ -6,6 +6,8 @@ export default interface IFileManager {
     close: () => void
     getFileSystem: () => Promise<FileTreeData>
     readFile: (path: string) => Promise<string>
+    makeDir: (path: string, name: string) => void
+    makeFile: (path: string, name: string) => void
     writeFile: (path: string, newFile: string) => void
     connection: Serial | any;
     connected: boolean

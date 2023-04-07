@@ -17,7 +17,7 @@ class Ide extends Subscribable {
     }
     connectionType: ConnectionType = ConnectionType.Serial
     changesMade: boolean = false
-    constructor() {
+    private constructor() {
         super()
         this.connectionType = ProgramSettings.getInstance().connectionType
 
@@ -81,13 +81,11 @@ class Ide extends Subscribable {
 
 
     getFile = async (path: any): Promise<string> => {
-        console.log(!this.files.has(path), this.files, path)
         if (!this.files.has(path)) {
             try {
                 const file = await this.connection.readFile(path)
-
                 this.files.set(path, file)
-                console.log(file, this)
+                console.log(file)
                 return file
 
             } catch (error) {
@@ -110,15 +108,19 @@ class Ide extends Subscribable {
         const file = await this.connection.writeFile(path, fileToBeSaved)
     }
 
-    makeNewFile = (path: string, name: string) => {
-
+    makeNewFile = async (path: string, name: string) => {
+        await this.connection.makeFile(path, name)
+        this.getFileSystem()
+    }
+    makeNewDir = async (path: string, name: string) => {
+        await this.connection.makeDir(path, name)
+        this.getFileSystem()
     }
 
     updateFile = (path: string, newFile: string) => {
         this.files.set(path, newFile)
         this.changesMade = true
         this.updateSubScribers()
-
     }
 
     open = () => {

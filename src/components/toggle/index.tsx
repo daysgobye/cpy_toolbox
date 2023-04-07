@@ -1,7 +1,5 @@
 
 import React from "react"
-// import "antd/dist/antd.css";
-import { Tree } from "antd";
 
 type Props = {
     value: boolean

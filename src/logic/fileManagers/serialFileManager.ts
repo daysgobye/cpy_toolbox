@@ -5,13 +5,17 @@ import IFileManager from "./ifileManager";
 
 export default class SerialFileManager implements IFileManager {
     connection: any;
-    connected: boolean = false
+    _connected: boolean = false
     haveFileSystem: boolean = false
     inUse: boolean = false
 
     constructor() {
         this.connection = Serial.getInstance()
-        this.connected = this.connection.connected
+        this._connected = this.connection.connected
+    }
+
+    public get connected() {
+        return this._connected ? this._connected : this.connection.connected
     }
     waitUntilCanUse = async () => {
         while (this.inUse) {
@@ -25,11 +29,11 @@ export default class SerialFileManager implements IFileManager {
 
     open = () => {
         this.connection.open()
-        this.connected = true
+        this._connected = true
     }
     close = () => {
         this.connection.close()
-        this.connected = false
+        this._connected = false
     }
 
     getFileSystem = async () => {
@@ -39,7 +43,12 @@ export default class SerialFileManager implements IFileManager {
             return files
         }
         const possessFiles = async (tmpfiles: string, parent: string) => {
-            const jsonFiles = JSON.parse(tmpfiles.replaceAll(`'`, `"`))
+            let jsonFiles
+            try {
+                jsonFiles = JSON.parse(tmpfiles.replaceAll(`'`, `"`))
+            } catch (error) {
+                return
+            }
             // console.log(jsonFiles)
             let tempTree: FileTreeData = {
                 title: parent,
@@ -86,7 +95,7 @@ export default class SerialFileManager implements IFileManager {
         const getLine = async (lineNumber: number) => {
             console.log("getting line", lineNumber)
             this.connection.writeStringToByte(`print(l[${lineNumber}])`)
-            await delay()
+            await delay(200)
         }
         await this.waitUntilCanUse()
         this.setUsing(true)
@@ -111,7 +120,6 @@ export default class SerialFileManager implements IFileManager {
         this.connection.toggleLock(false)
         const fileResponses = [...this.connection.responses].splice(responsesPreFile, this.connection.responses.length - 1)
         const filtered: string[] = fileResponses.filter(res => !res.startsWith(">>> "))
-        // console.log(responsesPreFile, this.connection.responses.length, fileResponses)
         const file = filtered.join("")
         return file
     }
@@ -142,6 +150,37 @@ export default class SerialFileManager implements IFileManager {
                 this.connection.communicate(`ToolBox ERROR: File Saved... ${path} was saved but something is wrong.`)
             }
         }
+    }
+
+    makeDir = async (path: string, name: string) => {
+        const newPath = `${path}/${name}`
+        await this.waitUntilCanUse()
+        this.setUsing(true)
+        await this.connection.getReplConnection()
+        this.connection.toggleLock(true)
+        this.connection.writeStringToByte("import os")
+        await delay()
+        this.connection.writeStringToByte(`is.mkdir(${newPath})`)
+        await delay()
+        this.connection.writeStringToByte("os.sync()")
+        this.setUsing(false)
+        this.connection.toggleLock(false)
+
+    }
+    makeFile = async (path: string, name: string) => {
+        const newPath = `${path}/${name}`
+
+        await this.waitUntilCanUse()
+        this.setUsing(true)
+        await this.connection.getReplConnection()
+        this.connection.toggleLock(true)
+        this.connection.writeStringToByte("import os")
+        await delay()
+        this.connection.writeStringToByte(`f=open("${newPath}","w")`)
+        await delay()
+        this.connection.writeStringToByte("os.sync()")
+        this.setUsing(false)
+        this.connection.toggleLock(false)
     }
 
 }

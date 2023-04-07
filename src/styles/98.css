@@ -358,7 +358,7 @@
 }
 
 .oldschool .title-bar {
-    font-family: "Pixelated MS Sans Serif", Arial;
+    --tilebar-height: 15px font-family: "Pixelated MS Sans Serif", Arial;
     -webkit-font-smoothing: none;
     font-size: 11px;
     background: linear-gradient(90deg, var(--dialog-blue), var(--dialog-blue-light));

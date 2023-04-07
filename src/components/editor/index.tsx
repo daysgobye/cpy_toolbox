@@ -29,7 +29,10 @@ const Editor = (props: Props) => {
         updateState()
     })
     const getFileType = () => {
-        // const fileType = props.path.split(".")
+        if (props.path) {
+            const fileType = `${props.path}`.split(".").pop()
+            return fileType
+        }
         return "py"
     }
 

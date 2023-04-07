@@ -5,14 +5,21 @@ import { useEffect } from "react"
 import Editor from "../components/editor"
 import FileTree from "../components/fileTree"
 import Ide from "../logic/ide"
+import { PopOver } from "../logic/popover"
+import ContextMenu from "../components/contextMenu"
 const connection = Serial.getInstance()
 const ideManager = Ide.getInstance()
+const popOver = PopOver.getInstance()
+
 export default function IdeView() {
     const
         [tree, setTree] = React.useState(ideManager.fileSystem),
         [subId, setSubId] = React.useState(""),
         [openedFiles, setOpenedFiles] = React.useState<Set<string>>(new Set()),
-        [selectedFile, setSelectedFile] = React.useState("")
+        [selectedFile, setSelectedFile] = React.useState(""),
+        ref = React.useRef();
+
+    // move this to own component  and pop over to take state
 
 
     const ctrlc = () => {
@@ -33,13 +40,37 @@ export default function IdeView() {
         }
     }
 
+    const handleKeyEvent = (e: KeyboardEvent | React.KeyboardEvent) => {
+        // console.log("e:", e)
+        if (e.ctrlKey) {
+            switch (e.key) {
+                case "c":
+                    ctrlc()
+                    break;
+                case "d":
+                    ctrld()
+                    break;
+                case "s":
+                    saveCurrentFile()
+                    break
+                default:
+                    break;
+            }
+        }
+
+    }
+
+
     const selectFile = async (selected: any, info: any) => {
-        console.log(selected, info, info.selectedNodes.hasOwnProperty("children"))
-        if (!info.selectedNodes.hasOwnProperty("children")) {
-            ideManager.getFile(selected[0])
+        console.log(selected, info, info.selectedNodes[0].hasOwnProperty("children"))
+        if (!info.selectedNodes[0].hasOwnProperty("children")) {
+            // ideManager.getFile(selected[0])
             const tempOpenFiles = [selected[0], ...openedFiles]
             setOpenedFiles(new Set(tempOpenFiles))
             setSelectedFile(selected[0])
+        } else {
+            const { clientX, clientY } = info.nativeEvent
+            popOver.show(ContextMenu, selected[0], [clientX, clientY])
 
         }
     }
@@ -54,6 +85,19 @@ export default function IdeView() {
             setSubId(tempId)
 
         }
+
+        function handleKeyDown(e: KeyboardEvent) {
+            //@ts-ignore
+            if (!ref.current || ref.current.contains(e.target)) {
+                return;
+            }
+            handleKeyEvent(e);
+        }
+        document.addEventListener("keyup", handleKeyDown);
+
+        return function cleanup() {
+            document.removeEventListener("keyup", handleKeyDown);
+        };
         // return () => {
         //     console.log("subbing", subId, ideManager)
 
@@ -62,8 +106,8 @@ export default function IdeView() {
     })
 
 
-
-    return (<div className="h100">
+    //@ts-ignore
+    return (<div ref={ref} className="h100">
 
 
         <div className="flex flex-row">

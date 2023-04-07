@@ -105,10 +105,12 @@ export default function TerminalView() {
                 <div className="flex w-[100%]">
 
 
-                    <input type="text" className="terminal-bg terminal-input text-[#33ff00]" onKeyDown={handleKeyEvent} value={input} onChange={(e) => {
-                        //@ts-ignore
-                        setInput(e.target.value)
-                    }} />
+                    <input type="text" className="terminal-bg terminal-input text-[#33ff00]" onKeyDown={handleKeyEvent}
+                        value={input}
+                        onChange={(e) => {
+                            //@ts-ignore
+                            setInput(e.target.value)
+                        }} />
                     <button className="btn terminal-bg terminal-btn text-[#33ff00]" onClick={enter}> ⏎</button>
                 </div>
             </div>

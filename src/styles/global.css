@@ -8,6 +8,33 @@
     }
 }
 
+
+
+div.window-container>div.title-bar>span.windowTitle {
+    font-size: 10px !important;
+}
+
+.windowButton {
+    /* height: auto !important;
+    width: auto !important; */
+    --tilebar-height: 15px
+}
+
+div.window-container>div.title-bar>span.icon {
+    /* height: auto !important;
+    width: auto !important; */
+    --tilebar-height: 15px
+}
+
+.windowTitle {
+    --tilebar-height: 15px
+        /* line-height: auto !important; */
+}
+
+div.window-container {
+    --tilebar-height: 15px
+}
+
 .cpywindow {
     max-height: 100vh;
     max-width: 100vw;

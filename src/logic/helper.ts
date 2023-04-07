@@ -2,7 +2,7 @@ import { ProgramSettings } from "./programSettings";
 import { FileTreeData } from "./types";
 
 const settings = ProgramSettings.getInstance()
-export const delay = (time: number = 550) => {
+export const delay = (time: number = 370) => {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 export const cleanString = (str: string) => {
