@@ -1,6 +1,9 @@
-import type { GatsbyConfig } from "gatsby"
+import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
   },
@@ -8,10 +11,7 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: [
-    'gatsby-plugin-postcss',
+  plugins: ["gatsby-plugin-postcss"],
+};
 
-  ],
-}
-
-export default config
+export default config;
