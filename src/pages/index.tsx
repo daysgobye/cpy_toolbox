@@ -35,61 +35,65 @@ export default function IndexPage() {
   ];
   return (
     <Layout>
-      <div className="grid gap-4 grid-cols-6	bg-pink p-4 pb-20">
-        <div className="col-span-full flex justify-between	">
-          <div className="bg-white m-5 p-2 border-2 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] -rotate-3	max-h-28">
-            <h2 className="text-5xl p-3 m-2 ">Hey.</h2>
-          </div>
+      <div className="min-h-full bg-pink flex flex-1 h-full">
+        <div className="grid gap-4 grid-cols-6	bg-pink p-4 pb-20 h-1/6	">
+          <div className="col-span-full flex justify-between	h-50">
+            <div className="bg-white m-5 p-2 border-2 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] -rotate-3	max-h-28">
+              <h2 className="text-5xl p-3 m-2 ">Hey.</h2>
+            </div>
 
-          <div className="bg-white m-8 p-2 border-2 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] rotate-[16deg]	">
-            <h2 className="text-5xl p-5 m-9">Welcome!! 🤙</h2>
-          </div>
-        </div>
-        <div className="col-span-3 p-5 border-2   border-black bg-yellow">
-          <h2 className="text-3xl mb-2">What is Peg Toolbox?</h2>
-          <div className="flex">
-            <p>
-              Peg toolbox is a playground first and foremost. After that it is a
-              collection of tools we have made for our selfs to use / learn
-              with.
-            </p>
-            <div className=" static border-2 border-black bg-white shadow-[4px_4px_0_rgba(0,0,0,1)] p-4 pb-8 m-4 rotate-[-2deg]	">
-              <img
-                src={pegLogo}
-                alt="peg logo"
-                className="border-2 border-black"
-              />
-              <p className="text-6xl absolute rotate-[28deg] -translate-y-36 translate-x-24">
-                🌭
-              </p>
+            <div className="bg-white m-8 p-2 border-2 border-black shadow-[6px_6px_0_rgba(0,0,0,1)] rotate-[16deg]	">
+              <h2 className="text-5xl p-5 m-9">Welcome!! 🤙</h2>
             </div>
           </div>
-        </div>
-        <div className="col-span-3 p-5 border-2 border-black bg-light-blue">
-          <h2 className="text-3xl mb-2">Available pages:</h2>
-          <table className="static table-auto bg-white border-collapse border-2 border-black">
-            <thead>
-              <tr>
-                <th className="border-2 border-black p-2">Page</th>
-                <th className="border-2 border-black p-2">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pages.map((page, i) => (
+          <div className="col-span-3 p-5 border-2   border-black bg-yellow">
+            <h2 className="text-3xl mb-2">What is Peg Toolbox?</h2>
+            <div className="flex">
+              <p>
+                Peg toolbox is a playground first and foremost. After that it is
+                a collection of tools we have made for our selfs to use / learn
+                with.
+              </p>
+              <div className=" static border-2 border-black bg-white shadow-[4px_4px_0_rgba(0,0,0,1)] p-4 pb-8 m-4 rotate-[-2deg] transform hover:rotate-[2deg] transition duration-250 ease-in-out	">
+                <img
+                  src={pegLogo}
+                  alt="peg logo"
+                  className="border-2 border-black "
+                />
+                <p className="text-6xl absolute rotate-[18deg] top-0 right-0 translate-x-[.75em] transform hover:rotate-[2deg] transition duration-250 ease-in-out">
+                  🌭
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-3 p-5 border-2 border-black bg-light-blue">
+            <h2 className="text-3xl mb-2">Available pages:</h2>
+            <table className="static table-auto bg-white border-collapse border-2 border-black w-full">
+              <thead>
                 <tr>
-                  <td className="border-2 border-black p-2">
-                    <Link className="underline" to={page.link}>
-                      {page.title}
-                    </Link>
-                  </td>
-                  <td className="border-2 border-black p-2">
-                    {page.description}
-                  </td>
+                  <th className="border-2 border-black p-2">Page</th>
+                  <th className="border-2 border-black p-2">Description</th>
                 </tr>
-              ))}
-            </tbody>
-            <p className="text-6xl absolute rotate-[40deg] ">🐣</p>
-          </table>
+              </thead>
+              <tbody>
+                {pages.map((page, i) => (
+                  <tr>
+                    <td className="border-2 border-black p-2">
+                      <Link className="underline" to={page.link}>
+                        {page.title}
+                      </Link>
+                    </td>
+                    <td className="border-2 border-black p-2">
+                      {page.description}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <p className="text-6xl absolute rotate-[40deg] right-0 transform hover:rotate-[2deg] transition duration-250 ease-in-out ">
+                🐣
+              </p>
+            </table>
+          </div>
         </div>
       </div>
     </Layout>
