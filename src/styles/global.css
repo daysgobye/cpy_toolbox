@@ -2,175 +2,200 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  color: #000000 !important;
+}
 @layer components {
-    .btn-primary {
-        @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover: bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
-    }
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover: bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
 }
 
-
-
-div.window-container>div.title-bar>span.windowTitle {
-    font-size: 10px !important;
+div.window-container > div.title-bar > span.windowTitle {
+  font-size: 10px !important;
 }
 
 .windowButton {
-    /* height: auto !important;
+  /* height: auto !important;
     width: auto !important; */
-    --tilebar-height: 15px
+  --tilebar-height: 15px;
 }
 
-div.window-container>div.title-bar>span.icon {
-    /* height: auto !important;
+div.window-container > div.title-bar > span.icon {
+  /* height: auto !important;
     width: auto !important; */
-    --tilebar-height: 15px
+  --tilebar-height: 15px;
 }
 
 .windowTitle {
-    --tilebar-height: 15px
-        /* line-height: auto !important; */
+  --tilebar-height: 15px;
+  /* line-height: auto !important; */
 }
 
 div.window-container {
-    --tilebar-height: 15px
+  --tilebar-height: 15px;
 }
 
 .cpywindow {
-    max-height: 100vh;
-    max-width: 100vw;
-    overflow: hidden;
-
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .cpywindow .ml-2 {
-    margin-left: var(--grouped-button-spacing) !important;
+  margin-left: var(--grouped-button-spacing) !important;
 }
 
 .cpywindow .bg {
-    background-color: var(--button-face) !important;
+  background-color: var(--button-face) !important;
 }
 
 .cpywindow .top {
-    z-index: 9000000 !important;
+  z-index: 9000000 !important;
 }
 
 .cpywindow .start-title {
-    bottom: 90px;
-    left: -85px;
-    height: 1em !important;
-    color: white;
-    font-size: 1.5em;
+  bottom: 90px;
+  left: -85px;
+  height: 1em !important;
+  color: white;
+  font-size: 1.5em;
 }
 
 .cpywindow .start-title span {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .cpywindow .content {
-    height: 100% !important;
+  height: 100% !important;
 }
 
 .h20 {
-    height: 20%;
+  height: 20%;
 }
 
 .h40 {
-    height: 40%;
+  height: 40%;
 }
 
 .h50 {
-    height: 50%;
+  height: 50%;
 }
 
 .h60 {
-    height: 60%;
+  height: 60%;
 }
 
 .h80 {
-    height: 80%;
+  height: 80%;
 }
 
 .h90 {
-    height: 90%;
+  height: 90%;
 }
 
 .h100 {
-    height: 100%;
+  height: 100%;
 }
 
 .w20 {
-    width: 20%;
+  width: 20%;
 }
 
 .w40 {
-    width: 40%;
+  width: 40%;
 }
 
 .w50 {
-    width: 50%;
+  width: 50%;
 }
 
 .w60 {
-    width: 60%;
+  width: 60%;
 }
 
 .w80 {
-    width: 80%;
+  width: 80%;
 }
 
 .w90 {
-    width: 90%;
+  width: 90%;
 }
 
 .w100 {
-    width: 100%;
+  width: 100%;
 }
 
-
-.terminal_window {}
+.terminal_window {
+}
 
 .terminal {
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
-    /* background: blueviolet; */
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  /* background: blueviolet; */
 }
 
 .terminal_code::-webkit-scrollbar {
-    width: .5em;
+  width: 0.5em;
 }
 
 .terminal_code::-webkit-scrollbar-track {
-    background-color: black;
+  background-color: black;
 }
 
 .terminal_code::-webkit-scrollbar-thumb {
-    background-color: black;
-    outline: none;
-    border-top: 1px solid #33ff00;
-    border-bottom: 1px solid #33ff00;
+  background-color: black;
+  outline: none;
+  border-top: 1px solid #33ff00;
+  border-bottom: 1px solid #33ff00;
 }
 
 .terminal .terminal_code {
-    /* background: RED !important; */
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
+  /* background: RED !important; */
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
 }
 
 .terminal-bg {
-    background: #000;
+  background: #000;
 }
 
 .terminal-input {
-    width: 80%;
-    -webkit-appearance: none;
-    outline: none;
-    font-size: 1.5em;
+  width: 80%;
+  -webkit-appearance: none;
+  outline: none;
+  font-size: 1.5em;
 }
 
 .terminal-btn {
-    width: 20%;
-    font-size: 1.5em;
-    border-left: 1px solid #33ff00;
+  width: 20%;
+  font-size: 1.5em;
+  border-left: 1px solid #33ff00;
+}
+.bg-black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.bg-white {
+  background-color: #ffffff;
+}
+.bg-yellow {
+  background-color: #ffff00;
+}
+.bg-blue {
+  background-color: #3300ff;
+}
+.bg-pink {
+  background-color: #ff00f5;
+}
+.bg-orange {
+  background-color: #ff4911;
+}
+.bg-green {
+  background-color: #2fff2f;
+}
+.bg-light-blue {
+  background-color: #7df9ff;
 }

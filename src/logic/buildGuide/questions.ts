@@ -26,38 +26,38 @@ const generalQuestions: QuestionBlock = {
   SPLIT: {
     question: "Are we making a guide for a split keyboard?",
     prompt: [YesNo.yes, YesNo.no],
-    answer: "",
+    answer: "Yes",
     condition: (questions: QuestionBlock) => true,
   },
   OLED: {
     question: "Can this keyboard take OLED Screens?",
     prompt: [YesNo.yes, YesNo.no],
-    answer: "",
+    answer: "Yes",
     condition: (questions: QuestionBlock) => true,
   },
   ENCODERS: {
     question: "Can this keyboard take encoders?",
     prompt: [YesNo.yes, YesNo.no],
-    answer: "",
+    answer: "Yes",
     condition: (questions: QuestionBlock) => true,
   },
   LED: {
     question: "Can this keyboard take LEDs?",
     prompt: [YesNo.yes, YesNo.no],
-    answer: "",
+    answer: "Yes",
     condition: (questions: QuestionBlock) => true,
   },
   PERKEY: {
     question: "Can this keyboard take perkey LEDs?",
     prompt: [YesNo.yes, YesNo.no],
-    answer: "",
+    answer: "Yes",
     condition: (questions: QuestionBlock) =>
       checkForValue(questions, "LED", YesNo.yes),
   },
   UNDERGLOW: {
     question: "Can this keyboard take underglow LEDs?",
     prompt: [YesNo.yes, YesNo.no],
-    answer: "",
+    answer: "Yes",
     condition: (questions: QuestionBlock) =>
       checkForValue(questions, "LED", YesNo.yes),
   },

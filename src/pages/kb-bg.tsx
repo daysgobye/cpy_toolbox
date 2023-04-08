@@ -18,13 +18,16 @@ export default function IndexPage() {
       ...allQuestions,
     }),
     [pos, setPos] = React.useState(0),
-    [displayMd, setDisplayMd] = React.useState(true);
+    [displayMd, setDisplayMd] = React.useState(true),
+    [haveBeenSet, setHaveBeenSet] = React.useState<string[]>([]);
 
   const questionChange = (value: string) => {
     let tempQuestions = { ...questions };
-    console.log(value, tempQuestions[questionKeys[pos]]);
     tempQuestions[questionKeys[pos]].answer = value;
     setQuestions(tempQuestions);
+    const tempBeenSet = new Set([...haveBeenSet]);
+    tempBeenSet.add(questionKeys[pos]);
+    setHaveBeenSet([...tempBeenSet]);
   };
 
   const returnNextQuestion = () => {
@@ -40,11 +43,25 @@ export default function IndexPage() {
 
   const renderQuestion = (): React.ReactNode => {
     const tempQuestion = returnNextQuestion();
-    return <QuestionInput question={tempQuestion} onChange={questionChange} />;
+    return (
+      <QuestionInput
+        question={tempQuestion}
+        onChange={questionChange}
+        next={increasePos}
+      />
+    );
   };
 
   const increasePos = () => {
     if (pos < questionKeys.length) {
+      if (!haveBeenSet.includes(questionKeys[pos])) {
+        const unsetQuestion = questions[questionKeys[pos]];
+        if (Array.isArray(unsetQuestion.prompt)) {
+          questionChange(unsetQuestion.prompt[0]);
+        } else {
+          questionChange(unsetQuestion.answer);
+        }
+      }
       setPos(pos + 1);
     }
   };
@@ -74,18 +91,20 @@ export default function IndexPage() {
         </p>
         <div className="card overflow-auto max-h-96 shadow-xl">
           <div className="card-body flex-col">
-            {Object.values(questions)
-              .filter((question) => question.answer !== "")
+            <h2 className="card-title">Your answers</h2>
+
+            {Object.entries(questions)
+              .filter((question) => haveBeenSet.includes(question[0]))
               .map((question, index) => (
                 <p>
-                  {index}){question.question}:{question.answer}
+                  {index}){question[1].question}:{question[1].answer}
                 </p>
               ))}
           </div>
         </div>
 
         {renderQuestion()}
-        <div className="flex">
+        <div className="flex space-x-4">
           <Button onClick={decreasePos}>back</Button>
           <Button onClick={increasePos}>Next</Button>
         </div>
@@ -98,9 +117,12 @@ export default function IndexPage() {
                 {returnMd()}
               </ReactMarkdown>
             ) : (
-              <textarea disabled className="textarea h-[80vw] w-full">
-                {returnMd()}
-              </textarea>
+              <>
+                <p>copy away</p>
+                <textarea disabled className="textarea h-[80vw] w-full">
+                  {returnMd()}
+                </textarea>
+              </>
             )}
           </div>
         </div>{" "}
