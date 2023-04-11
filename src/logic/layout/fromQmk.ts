@@ -262,38 +262,86 @@ export const fromQmk = (qmkjson: string): LayoutJson => {
 
   return emptyLayout;
 };
-// KC_MS_UP	KC_MS_U	Move cursor up
-// KC_MS_DOWN	KC_MS_D	Move cursor down
-// KC_MS_LEFT	KC_MS_L	Move cursor left
-// KC_MS_RIGHT	KC_MS_R	Move cursor right
-// KC_MS_BTN1	KC_BTN1	Press button 1
-// KC_MS_BTN2	KC_BTN2	Press button 2
-// KC_MS_BTN3	KC_BTN3	Press button 3
-// KC_MS_BTN4	KC_BTN4	Press button 4
-// KC_MS_BTN5	KC_BTN5	Press button 5
-// KC_MS_BTN6	KC_BTN6	Press button 6
-// KC_MS_BTN7	KC_BTN7	Press button 7
-// KC_MS_BTN8	KC_BTN8	Press button 8
-// KC_MS_WH_UP	KC_WH_U	Move wheel up
-// KC_MS_WH_DOWN	KC_WH_D	Move wheel down
-// KC_MS_WH_LEFT	KC_WH_L	Move wheel left
-// KC_MS_WH_RIGHT	KC_WH_R	Move wheel right
-// KC_MS_ACCEL0	KC_ACL0	Set speed to 0
-// KC_MS_ACCEL1	KC_ACL1	Set speed to 1
-// KC_MS_ACCEL2	KC_ACL2	Set speed to 2
+
 const fixKey = (key: string) => {
+  const badMouseKeys = [
+    "KC_MS_UP",
+    "KC_MS_U",
+    "KC_MS_DOWN",
+    "KC_MS_D",
+    "KC_MS_LEFT",
+    "KC_MS_L",
+    "KC_MS_RIGHT",
+    "KC_MS_R",
+    "KC_MS_BTN1",
+    "KC_BTN1",
+    "KC_MS_BTN2",
+    "KC_BTN2",
+    "KC_MS_BTN3",
+    "KC_BTN3",
+    "KC_MS_BTN4",
+    "KC_BTN4",
+    "KC_MS_BTN5",
+    "KC_BTN5",
+    "KC_MS_BTN6",
+    "KC_BTN6",
+    "KC_MS_BTN7",
+    "KC_BTN7",
+    "KC_MS_BTN8",
+    "KC_BTN8",
+    "KC_MS_WH_UP",
+    "KC_WH_U",
+    "KC_MS_WH_DOWN",
+    "KC_WH_D",
+    "KC_MS_WH_LEFT",
+    "KC_WH_L",
+    "KC_MS_WH_RIGHT",
+    "KC_WH_R",
+    "KC_MS_ACCEL0",
+    "KC_ACL0",
+    "KC_MS_ACCEL1",
+    "KC_ACL1",
+    "KC_MS_ACCEL2",
+    "KC_ACL2",]
   const mouseKeyMap = {
-    :"KC.MB_LMB",
-    :"KC.MB_RMB",
-    :"KC.MB_MMB",
-    :"KC.MB_BTN4",
-    :"KC.MB_BTN5",
-    :"KC.MW_UP",
-    :"KC.MW_DOWN",
-    :"KC.MS_UP",
-    :"KC.MS_DOWN",
-    :"KC.MS_LEFT",
-    :"KC.MS_RIGHT",
+    KC_MS_UP: "KC.MS_UP",
+    KC_MS_U: "KC.MS_UP",
+    KC_MS_DOWN: "KC.MS_DOWN",
+    KC_MS_D: "KC.MS_DOWN",
+    KC_MS_LEFT: "KC.MS_LEFT",
+    KC_MS_L: "KC.MS_LEFT",
+    KC_MS_RIGHT: "KC.MS_RIGHT",
+    KC_MS_R: "KC.MS_RIGHT",
+    KC_MS_BTN1: "KC.MB_LMB",
+    KC_BTN1: "KC.MB_LMB",
+    KC_MS_BTN2: "KC.MB_RMB",
+    KC_BTN2: "KC.MB_RMB",
+    KC_MS_BTN3: "KC.MB_MMB",
+    KC_BTN3: "KC.MB_MMB",
+    KC_MS_BTN4: "KC.MB_BTN4",
+    KC_BTN4: "KC.MB_BTN4",
+    KC_MS_BTN5: "KC.MB_BTN5",
+    KC_BTN5: "KC.MB_BTN5",
+    KC_MS_BTN6: "KC.TRNS",
+    KC_BTN6: "KC.TRNS",
+    KC_MS_BTN7: "KC.TRNS",
+    KC_BTN7: "KC.TRNS",
+    KC_MS_BTN8: "KC.TRNS",
+    KC_BTN8: "KC.TRNS",
+    KC_MS_WH_UP: "KC.MW_UP",
+    KC_WH_U: "KC.MW_UP",
+    KC_MS_WH_DOWN: "KC.MW_DOWN",
+    KC_WH_D: "KC.MW_DOWN",
+    KC_MS_WH_LEFT: "KC.TRNS",
+    KC_WH_L: "KC.TRNS",
+    KC_MS_WH_RIGHT: "KC.TRNS",
+    KC_WH_R: "KC.TRNS",
+    KC_MS_ACCEL0: "KC.TRNS",
+    KC_ACL0: "KC.TRNS",
+    KC_MS_ACCEL1: "KC.TRNS",
+    KC_ACL1: "KC.TRNS",
+    KC_MS_ACCEL2: "KC.TRNS",
+    KC_ACL2: "KC.TRNS",
   }
   const badNumberKeys = [
     "KC_0",
@@ -315,6 +363,10 @@ const fixKey = (key: string) => {
   }
   if (badNumberKeys.includes(key)) {
     return `KC.N${key.at(-1)}`;
+  }
+  if (badMouseKeys.includes(key)) {
+    //@ts-ignore
+    return mouseKeyMap[key]
   }
   return `KC.${key}`;
 };
@@ -355,5 +407,13 @@ export const fromQmkJsonMap = (
   emptyLayout.data.layers = emptyLayout.data.layers.map((layer) =>
     layer.map(fixKey)
   );
+  emptyLayout.data.layers.forEach(layer => {
+    if (layer.find(key => meidaKeys.includes(key))) {
+      emptyLayout.data.used_modules.media_keys_used = true
+    }
+    if (layer.find(key => mouseKeys.includes(key))) {
+      emptyLayout.data.used_modules.mouse_keys_used = true
+    }
+  })
   return emptyLayout;
 };
