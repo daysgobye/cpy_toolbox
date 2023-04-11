@@ -11,6 +11,7 @@ import QuestionInput from "../components/kb-bg/question";
 import ReactMarkdown from "react-markdown";
 import { returnGuide } from "../logic/buildGuide/buildguideMd";
 import remarkGfm from "remark-gfm";
+import SimpleEditor, { FileType } from "../components/editor/simple";
 
 export default function IndexPage() {
   const questionKeys = Object.keys(allQuestions);
@@ -84,53 +85,60 @@ export default function IndexPage() {
     return returnGuide(answers);
   };
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div className="flex-col">
-        <p>
-          on question {pos} of {questionKeys.length} ish questions
-        </p>
-        <div className="card overflow-auto max-h-96 shadow-xl">
-          <div className="card-body flex-col">
-            <h2 className="card-title">Your answers</h2>
+    <Layout>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="flex-col">
+          <p>
+            on question {pos} of {questionKeys.length} ish questions
+          </p>
+          <div className="card overflow-auto max-h-96 shadow-xl">
+            <div className="card-body flex-col">
+              <h2 className="card-title">Your answers</h2>
 
-            {Object.entries(questions)
-              .filter((question) => haveBeenSet.includes(question[0]))
-              .map((question, index) => (
-                <p>
-                  {index}){question[1].question}:{question[1].answer}
-                </p>
-              ))}
+              {Object.entries(questions)
+                .filter((question) => haveBeenSet.includes(question[0]))
+                .map((question, index) => (
+                  <p>
+                    {index}){question[1].question}:{question[1].answer}
+                  </p>
+                ))}
+            </div>
+          </div>
+
+          {renderQuestion()}
+          <div className="flex space-x-4">
+            <Button onClick={decreasePos}>back</Button>
+            <Button onClick={increasePos}>Next</Button>
           </div>
         </div>
-
-        {renderQuestion()}
-        <div className="flex space-x-4">
-          <Button onClick={decreasePos}>back</Button>
-          <Button onClick={increasePos}>Next</Button>
-        </div>
-      </div>
-      <div className="mockup-window border bg-base-300 shadow-xl ">
-        <div className="overflow-auto max-h-[80vh]">
-          <div className="p-5">
-            {displayMd ? (
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {returnMd()}
-              </ReactMarkdown>
-            ) : (
-              <>
-                <p>copy away</p>
-                <textarea disabled className="textarea h-[80vw] w-full">
+        <div className="mockup-window border bg-base-300 shadow-xl ">
+          <div className="overflow-auto max-h-[80vh]">
+            <div className="p-5">
+              {displayMd ? (
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {returnMd()}
-                </textarea>
-              </>
-            )}
-          </div>
-        </div>{" "}
-        <Button onClick={() => setDisplayMd(!displayMd)}>
-          {displayMd ? "raw text" : "Mark down"}
-        </Button>
+                </ReactMarkdown>
+              ) : (
+                <>
+                  <p>copy away</p>
+                  <SimpleEditor
+                    value={returnMd()}
+                    fileType={FileType.markdown}
+                    onChange={() => {}}
+                  />
+                  {/* <textarea disabled className="textarea h-[80vw] w-full">
+                  {returnMd()}
+                </textarea> */}
+                </>
+              )}
+            </div>
+          </div>{" "}
+          <Button onClick={() => setDisplayMd(!displayMd)}>
+            {displayMd ? "raw text" : "Mark down"}
+          </Button>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 export const Head: HeadFC = () => <title>cpy toolbox</title>;

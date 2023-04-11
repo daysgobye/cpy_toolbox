@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
+//@ts-ignore
 import pegLogo from "../images/peglogo.jpg";
 
 export default function IndexPage() {
