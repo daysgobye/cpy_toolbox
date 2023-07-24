@@ -33,6 +33,11 @@ export default function IndexPage() {
       link: "/settings",
       description: "Settings from 98 just on its own page.",
     },
+    {
+      title: "POS",
+      link: "/pos",
+      description: "a bs pos",
+    },
   ];
   return (
     <Layout>

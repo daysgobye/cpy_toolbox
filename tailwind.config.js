@@ -5,4 +5,6 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   plugins: [require("daisyui")],
+  darkMode: 'class',
+
 };
