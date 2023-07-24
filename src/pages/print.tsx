@@ -1,12 +1,11 @@
 import { HeadFC, Link, PageProps } from "gatsby";
 import React, { useEffect, useState } from 'react';
-import { render } from 'react-dom';
-import { Stage, Layer, Rect, Text, Circle } from 'react-konva';
-import Konva from 'konva';
+// import { Stage, Layer, Rect, Text, Circle } from 'react-konva';
 import { CartStockItem } from "../logic/pos/shoppingCart";
+const windowGlobal = typeof window !== 'undefined' && window;
 
 
-
+const { Stage, Layer, Rect, Text, Circle } = windowGlobal ? require('react-konva') : { Stage: null, Layer: null, Rect: null, Text: null, Circle: null };
 export const dataURLtoFile = (dataurl: string, filename: string) => {
     var arr = dataurl.split(","),
         //@ts-ignore
@@ -154,8 +153,9 @@ const Reciept = ({ items, total }: { items: CartStockItem[], total: number }) =>
     )
 }
 export default function print(props: any) {
-    const items: CartStockItem[] = { ...props.location.state.items } as unknown as CartStockItem[]
-        , total: number = props.location.state.total
+    //@ts-ignore
+    const items: CartStockItem[] | undefined = props.location && props.location.state && props.location.state.items ? { ...props.location.state.items } as unknown as CartStockItem[] : undefined
+    const total: number | undefined = props.location && props.location.state && props.location.state.total ? props.location.state.total : undefined
     return (
         <div className="flex flex-col">
             <div className="flex justify-between mb-10">
@@ -172,7 +172,7 @@ export default function print(props: any) {
             <div className="pattern-zigzag-3d pattern-blue-500 pattern-bg-white 
   pattern-size-6 pattern-opacity-20 bg-blue-200 min-h-full">
 
-                {items ? <Reciept items={Object.values(items)} total={total} /> : <div>no items</div>}
+                {items && total ? <Reciept items={Object.values(items)} total={total} /> : <div>no items</div>}
             </div>
 
         </div>
