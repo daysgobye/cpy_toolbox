@@ -1,38 +1,62 @@
 [
     {
         "name": "3x4",
-        "price": 18,
-        "build guide": "",
+        "price": 45,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-3x4",
         "catagorie": "kit"
     },
     {
-        "name": "lily58",
-        "price": 75,
-        "build guide": "",
+        "name": "Lily58",
+        "price": 100,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-LULU_kit",
         "catagorie": "kit"
     },
     {
-        "name": "corne",
-        "price": 75,
-        "build guide": "",
+        "name": "Corne",
+        "price": 100,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-corne_crkbd",
         "catagorie": "kit"
     },
     {
-        "name": "reviung41",
-        "price": 75,
-        "build guide": "",
+        "name": "Reviung41",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-reviung41",
         "catagorie": "kit"
     },
     {
-        "name": "reviung34",
-        "price": 75,
-        "build guide": "",
+        "name": "Reviung34",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-Rev34build_guide_",
         "catagorie": "kit"
     },
     {
-        "name": "microdox",
-        "price": 75,
-        "build guide": "",
+        "name": "Microdox",
+        "price": 95,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
+        "catagorie": "kit"
+    },
+    {
+        "name": "Ferris Sweep",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-sweep",
+        "catagorie": "kit"
+    },
+    {
+        "name": "Architeuithis",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-architeuthis_dux",
+        "catagorie": "kit"
+    },
+    {
+        "name": "Equals",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals_kit",
+        "catagorie": "kit"
+    },
+    {
+        "name": "Eternal Pad",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
         "catagorie": "kit"
     }
 ]
