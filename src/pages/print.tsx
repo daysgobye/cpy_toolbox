@@ -57,15 +57,15 @@ const Reciept = ({ items, total }: { items: CartStockItem[], total: number }) =>
         if (stageRef.current && stageRef.current.toDataURL) {
             //@ts-ignore
             const uri = stageRef.current.toDataURL();
-            const file = dataURLtoFile(uri, "boardsource receipt.png");
+            const file = dataURLtoFile(uri, "boardsource receipt.pdf");
             shareFile(file, "Receipt", "boardsource  receipt");
         }
     }
     const [img, setImg] = useState(null)
     const getY = (i: number) => {
-        return i * 30 + 90
+        return i * 32 + 90
     }
-    const height = items.length * 30 + 180
+    const height = items.length * 32 + 180
 
 
     useEffect(() => {
@@ -108,9 +108,9 @@ const Reciept = ({ items, total }: { items: CartStockItem[], total: number }) =>
                     />
                     <Text x={45} y={15} fontSize={25} text={`Boardsource`} />
 
-                    <Text x={2} y={45} fontSize={20} text={`item`} />
-                    <Text x={125} y={45} fontSize={20} text={`qty`} />
-                    <Text x={155} y={45} fontSize={20} text={`price`} />
+                    <Text x={2} y={45} fontSize={20} text={`Item`} />
+                    <Text x={112} y={45} fontSize={20} text={`QTY`} />
+                    <Text x={155} y={45} fontSize={20} text={`Price`} />
                     <Rect
                         x={0}
                         y={70}
@@ -123,8 +123,8 @@ const Reciept = ({ items, total }: { items: CartStockItem[], total: number }) =>
                 {items.map((item, i) => (
                     <Layer key={i}>
                         <Text x={2} y={getY(i)} fontSize={18} text={`${item.name}`} />
-                        <Text x={145} y={getY(i)} fontSize={18} text={`${item.quantity}`} />
-                        <Text x={165} y={getY(i)} fontSize={18} text={`$${item.price}`} />
+                        <Text x={128} y={getY(i)} fontSize={18} text={`${item.quantity}`} />
+                        <Text x={150} y={getY(i)} fontSize={18} text={`$${item.price}`} />
                         {/* <Text x={2} y={getY(i) + 15} fontSize={10} text={item.buildGuide} /> */}
                     </Layer>
                 ))}
@@ -136,12 +136,12 @@ const Reciept = ({ items, total }: { items: CartStockItem[], total: number }) =>
                         height={2}
                         fill={"black"}
                     />
-                    <Text x={2} y={height - 75} fontSize={20} text={`subTotal`} />
-                    <Text x={150} y={height - 75} fontSize={20} text={`$${total}`} />
+                    <Text x={2} y={height - 75} fontSize={20} text={`SubTotal`} />
+                    <Text x={140} y={height - 75} fontSize={20} text={`$${total}`} />
                     <Text x={2} y={height - 52} fontSize={20} text={`Tax`} />
-                    <Text x={150} y={height - 52} fontSize={20} text={`$${getTax()}`} />
-                    <Text x={2} y={height - 30} fontSize={20} text={`total`} />
-                    <Text x={150} y={height - 30} fontSize={20} text={`$${Math.floor(getTax() + total)}`} />
+                    <Text x={140} y={height - 52} fontSize={20} text={`$${getTax()}`} />
+                    <Text x={2} y={height - 30} fontSize={20} text={`Total`} />
+                    <Text x={140} y={height - 30} fontSize={20} text={`$${Math.floor(getTax() + total)}`} />
                 </Layer>
 
             </Stage>
