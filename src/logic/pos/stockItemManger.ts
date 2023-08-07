@@ -27,7 +27,9 @@ export class StockItemManager {
 
 
     getItemsByCategory(category: Category) {
-        this.currentItems = this.stockItems.filter((item) => item.category === category);
+        const tempCurrentItems = this.stockItems.filter((item) => item.category === category);
+        console.log(tempCurrentItems, category, this.stockItems[0])
+        this.currentItems = [...tempCurrentItems]
         this.notifyOfChange()
     }
 

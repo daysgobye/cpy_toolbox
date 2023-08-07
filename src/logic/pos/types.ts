@@ -1,4 +1,4 @@
-export type Category = "kit" | "switch" | "component" | "premium product";
+export type Category = "kit" | "switch" | "component" | "accessories" | "key cap" | "premium product";
 
 export type StockItem = {
     name: string;

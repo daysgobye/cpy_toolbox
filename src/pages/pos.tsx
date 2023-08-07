@@ -49,6 +49,23 @@ export default function IndexPage() {
     const getTotal = () => {
         return items.reduce((total, item) => total + item.price * item.quantity, 0);
     };
+    const getCategoryClassName = (category: Category) => {
+        switch (category) {
+            case "kit":
+                return "bg-lime-200"
+            case "switch":
+                return "bg-purple-200"
+            case "component":
+                return "bg-teal-200"
+            case "accessories":
+                return "bg-amber-200"
+            case "key cap":
+                return "bg-gray-200"
+            case "premium product":
+                return "bg-blue-200"
+
+        }
+    }
 
 
 
@@ -63,7 +80,7 @@ export default function IndexPage() {
                         View All
                     </button>
                     <button
-                        className="px-2 py-1 bg-blue-500 text-white rounded"
+                        className={`px-2 py-1  rounded ${getCategoryClassName("kit")}`}
                         onClick={() =>
                             stockItemManger.getItemsByCategory("kit")
                         }
@@ -71,7 +88,16 @@ export default function IndexPage() {
                         Filter Kit
                     </button>
                     <button
-                        className="px-2 py-1 bg-blue-500 text-white rounded"
+                        className={`px-2 py-1  rounded ${getCategoryClassName("premium product")}`}
+                        onClick={() =>
+                            stockItemManger.getItemsByCategory("premium product")
+
+                        }
+                    >
+                        Filter premium product
+                    </button>
+                    <button
+                        className={`px-2 py-1  rounded ${getCategoryClassName("switch")}`}
                         onClick={() =>
                             stockItemManger.getItemsByCategory("switch")
 
@@ -80,7 +106,7 @@ export default function IndexPage() {
                         Filter Switch
                     </button>
                     <button
-                        className="px-2 py-1 bg-blue-500 text-white rounded"
+                        className={`px-2 py-1  rounded ${getCategoryClassName("component")}`}
                         onClick={() =>
                             stockItemManger.getItemsByCategory("component")
 
@@ -88,12 +114,31 @@ export default function IndexPage() {
                     >
                         Filter Component
                     </button>
+
+                    <button
+                        className={`px-2 py-1  rounded ${getCategoryClassName("key cap")}`}
+                        onClick={() =>
+                            stockItemManger.getItemsByCategory("key cap")
+
+                        }
+                    >
+                        Filter Key cap
+                    </button>
+                    <button
+                        className={`px-2 py-1  rounded ${getCategoryClassName("accessories")}`}
+                        onClick={() =>
+                            stockItemManger.getItemsByCategory("accessories")
+
+                        }
+                    >
+                        Filter Accessories
+                    </button>
                 </div>
                 <div className="flex flex-wrap">
                     {StockItems.map((item) => (
                         <button
                             key={item.name}
-                            className="w-1/2 p-2 border border-gray-300"
+                            className={`w-[29%] p-2 border border-gray-300 ml-2 mb-2 p-4 rounded ${getCategoryClassName(item.category)}`}
                             onClick={() => addToCart(item)}
                         >
                             {item.name}
@@ -101,7 +146,7 @@ export default function IndexPage() {
                     ))}
                 </div>
             </div>
-            <div className="w-5/12">
+            <div className="w-5/12 ml-3">
                 <div className="flex justify-between mb-4">
                     <button
                         className="px-2 py-1 bg-red-500 text-white rounded"
