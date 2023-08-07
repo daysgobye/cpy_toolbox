@@ -85,13 +85,13 @@
     },
     {
         "name": "Technik",
-        "price": 170,
+        "price": 150,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
         "category": "premium product"
     },
     {
         "name": "Beiwagen",
-        "price": 60,
+        "price": 50,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
         "category": "premium product"
     },
@@ -189,6 +189,26 @@
     {
         "name": "Unicorne PCB Upgrade",
         "price": 25,
+        "category": "component"
+    },
+    {
+        "name": "Beiwagen Upgrade",
+        "price": 10,
+        "category": "component"
+    },
+    {
+        "name": "Technik Upgrade",
+        "price": 20,
+        "category": "component"
+    },
+    {
+        "name": "lulu tenting Upgrade",
+        "price": 20,
+        "category": "component"
+    },
+    {
+        "name": "lulu encoder Upgrade",
+        "price": 15,
         "category": "component"
     },
     {
