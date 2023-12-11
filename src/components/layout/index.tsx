@@ -6,7 +6,7 @@ type Props = {
 };
 const Layout = (props: Props) => {
   return (
-    <div className="flex flex-col min-h-screen max-w-screen overflow-x-hidden">
+    <div className="flex flex-col min-h-screen max-w-screen overflow-x-hidden" data-theme="light">
       <nav className="border-b-2 border-black	flex justify-between  items-center	">
         <h1 className="text-3xl font-bold m-3">Peg Toolbox</h1>
         <div className="flex">

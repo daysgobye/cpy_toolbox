@@ -7,6 +7,12 @@ import pegLogo from "../images/peglogo.jpg";
 export default function IndexPage() {
   const pages = [
     {
+      title: "Keyboard Tester",
+      link: "/tester",
+      description:
+        "This is a simple keyboard tester that allows you to test your keyboard switches / build and make sure everything works",
+    },
+    {
       title: "Build Guide Generator",
       link: "/kb-bg",
       description:
