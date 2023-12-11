@@ -13,16 +13,7 @@ type Key = {
     code: number
 }
 const defaultKeys: Key[] = [
-    {
-        "label": (
-            <img src="https://www.boardsource.xyz/bs_logo.svg" alt="Boardsource logo" />
-        ),
-        "w": 4,
-        "h": 1,
-        "x": 18.5,
-        "y": 0,
-        code: 1000
-    },
+
     {
         "label": "Esc",
         "w": 1,
@@ -288,38 +279,7 @@ const defaultKeys: Key[] = [
         "y": 1.5,
         code: 33
     },
-    {
-        "label": "Num",
-        "w": 1,
-        "h": 1,
-        "x": 18.5,
-        "y": 1.5,
-        code: 12
-    },
-    {
-        "label": "/",
-        "w": 1,
-        "h": 1,
-        "x": 19.5,
-        "y": 1.5,
-        code: 191
-    },
-    {
-        "label": "*",
-        "w": 1,
-        "h": 1,
-        "x": 20.5,
-        "y": 1.5,
-        code: 106
-    },
-    {
-        "label": "-",
-        "w": 1,
-        "h": 1,
-        "x": 21.5,
-        "y": 1.5,
-        code: 189
-    },
+
     {
         "label": "Tab",
         "h": 1,
@@ -456,38 +416,7 @@ const defaultKeys: Key[] = [
         "y": 2.5,
         code: 34
     },
-    {
-        "label": "7",
-        "w": 1,
-        "h": 1,
-        "x": 18.5,
-        "y": 2.5,
-        code: 55
-    },
-    {
-        "label": "8",
-        "w": 1,
-        "h": 1,
-        "x": 19.5,
-        "y": 2.5,
-        code: 56
-    },
-    {
-        "label": "9",
-        "w": 1,
-        "h": 1,
-        "x": 20.5,
-        "y": 2.5,
-        code: 57
-    },
-    {
-        "label": "+",
-        "w": 1,
-        "x": 21.5,
-        "y": 2.5,
-        "h": 2,
-        code: 187
-    },
+
     {
         "label": "Caps",
         "h": 1,
@@ -574,7 +503,7 @@ const defaultKeys: Key[] = [
         "h": 1,
         "x": 10.75,
         "y": 3.5,
-        code: 58
+        code: 186
     },
     {
         "label": "\"",
@@ -592,30 +521,7 @@ const defaultKeys: Key[] = [
         "w": 2.25,
         code: 13
     },
-    {
-        "label": "4",
-        "w": 1,
-        "h": 1,
-        "x": 18.5,
-        "y": 3.5,
-        code: 52
-    },
-    {
-        "label": "5",
-        "w": 1,
-        "h": 1,
-        "x": 19.5,
-        "y": 3.5,
-        code: 53
-    },
-    {
-        "label": "6",
-        "w": 1,
-        "h": 1,
-        "x": 20.5,
-        "y": 3.5,
-        code: 54
-    },
+
     {
         "label": "Shift",
         "h": 1,
@@ -720,38 +626,8 @@ const defaultKeys: Key[] = [
         "y": 4.5,
         code: 38
     },
-    {
-        "label": "1",
-        "w": 1,
-        "h": 1,
-        "x": 18.5,
-        "y": 4.5,
-        code: 49
-    },
-    {
-        "label": "2",
-        "w": 1,
-        "h": 1,
-        "x": 19.5,
-        "y": 4.5,
-        code: 50
-    },
-    {
-        "label": "3",
-        "w": 1,
-        "h": 1,
-        "x": 20.5,
-        "y": 4.5,
-        code: 51
-    },
-    {
-        "label": "Enter",
-        "w": 1,
-        "x": 21.5,
-        "y": 4.5,
-        "h": 2,
-        code: 13
-    },
+
+
     {
         "label": "Ctrl",
         "h": 1,
@@ -796,7 +672,8 @@ const defaultKeys: Key[] = [
         "h": 1,
         "x": 11.25,
         "y": 5.5,
-        "w": 1.25
+        "w": 1.25,
+        code: 91
     },
     {
         "label": "Menu",
@@ -838,22 +715,7 @@ const defaultKeys: Key[] = [
         "y": 5.5,
         code: 39
     },
-    {
-        "label": "0",
-        "h": 1,
-        "x": 18.5,
-        "y": 5.5,
-        "w": 2,
-        code: 48
-    },
-    {
-        "label": ".",
-        "w": 1,
-        "h": 1,
-        "x": 20.5,
-        "y": 5.5,
-        code: 190
-    }
+
 ]
 export default function TesterPage() {
     var sound = new Howl({
@@ -881,7 +743,7 @@ export default function TesterPage() {
 
     }
     const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-
+        console.log(e.keyCode)
         const key = keys.find(k => k.code === e.keyCode)
         const lables = ["L", "O", "V", "E"]
         if (key) {
