@@ -58,7 +58,7 @@ const Reciept = ({ items, total }: { items: CartStockItem[], total: number }) =>
             //@ts-ignore
             const uri = stageRef.current.toDataURL();
             const file = dataURLtoFile(uri, "boardsource receipt.png");
-            shareFile(file, "Receipt", "boardsource  receipt");
+            // shareFile(file, "Receipt", "boardsource  receipt");
         }
     }
     const [img, setImg] = useState(null)

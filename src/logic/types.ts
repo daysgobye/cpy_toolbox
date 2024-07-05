@@ -24,3 +24,20 @@ export type BootOptions = {
     serialEditing?: boolean
     hiddenDrive?: boolean
 }
+
+
+export type MenuItem = {
+    title: string,
+    price?: number,
+    description: string,
+    image: string,
+    inStock: boolean
+}
+
+export type MenuSection = {
+    title: string,
+    price: number,
+    description: string,
+    image: string,
+    items: MenuItem[]
+}

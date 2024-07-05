@@ -4,7 +4,9 @@ import Layout from "../components/layout";
 import { CartStockItem, ShoppingCart } from "../logic/pos/shoppingCart";
 import { StockItemManager } from "../logic/pos/stockItemManger";
 import { StockItem, Category } from "../logic/pos/types";
-
+import "../styles/print.css"
+//@ts-ignore
+import logo from "../images/boardsource_logo.svg"
 const shoppingCart = new ShoppingCart()
 const stockItemManger = new StockItemManager()
 export default function IndexPage() {
@@ -49,6 +51,10 @@ export default function IndexPage() {
     const getTotal = () => {
         return items.reduce((total, item) => total + item.price * item.quantity, 0);
     };
+    const getTax = () => {
+        const total = getTotal()
+        return (total * 8.3) / 100
+    }
     const getCategoryClassName = (category: Category) => {
         switch (category) {
             case "kit":
@@ -71,7 +77,7 @@ export default function IndexPage() {
 
     return (
         <div className="flex">
-            <div className="w-7/12">
+            <div className="w-7/12 print-hide">
                 <div className="flex justify-between mb-4">
                     <button
                         className="px-2 py-1 bg-blue-500 text-white rounded"
@@ -146,32 +152,46 @@ export default function IndexPage() {
                     ))}
                 </div>
             </div>
-            <div className="w-5/12 ml-3">
-                <div className="flex justify-between mb-4">
+            <div className="w-5/12 ml-3 print-full">
+                <div className="flex justify-between mb-4 print-hide">
                     <button
                         className="px-2 py-1 bg-red-500 text-white rounded"
                         onClick={clearCart}
                     >
                         Clear Cart
                     </button>
-                    <Link
+                    {/* <Link
                         to={"/print"}
                         state={{ items: items, total: getTotal() }}
                     >
-                        <button
-                            className="px-2 py-1 bg-green-500 text-white rounded"
-                        // onClick={print}
-                        >
-                            Print
-                        </button></Link>
+                            </Link> */}
+                    <button
+                        className="px-2 py-1 bg-green-500 text-white rounded"
+                        onClick={() => print()}
+                    >
+                        Print
+                    </button>
                 </div>
+                <div className="w-full flex justify-center mt-4">
+
+                    <img src={logo} alt="logo" />
+                </div>
+                <hr className="mt-4 mb-4 mr-4 divide-black border-black" />
                 <ul>
                     {items.map((item) => (
                         <li key={item.name} className="flex justify-between mb-2">
-                            <div>
-                                {item.name} - {item.price} - Qty: {item.quantity}
+                            <div className="grid grid-cols-3 gap-4 w-full">
+                                <p>
+                                    {item.name}
+                                </p>
+                                <p>
+                                    Qty: {item.quantity}
+                                </p>
+                                <p className="text-nowrap">
+                                    EA(${item.price}) - ${item.price * item.quantity}
+                                </p>
                             </div>
-                            <div>
+                            <div className="print-hide flex">
                                 <button
                                     className="px-1 bg-blue-500 text-white rounded mr-2"
                                     onClick={() => increaseQuantity(item)}
@@ -194,7 +214,24 @@ export default function IndexPage() {
                         </li>
                     ))}
                 </ul>
-                <div className="mt-4">Total: ${getTotal()}</div>
+                <hr className="mt-4 mb-4 mr-4 divide-black border-black" />
+                <div className=" w-full print-full pr-[50px]">
+                    <div className="flex justify-between">
+                        <p className="">Subtotal:</p>
+                        <p className="text-left w-1/5">${getTotal()}</p>
+                    </div>
+
+                    <div className="flex justify-between">
+                        <p className="">Tax:</p>
+                        <p className="text-left w-1/5"> ${getTax()}</p>
+                    </div>
+
+                    <div className="flex justify-between">
+                        <p className="">Total:</p>
+                        <p className="text-left w-1/5"> ${getTotal() + getTax()}</p>
+                    </div>
+
+                </div>
             </div>
         </div>
     );
