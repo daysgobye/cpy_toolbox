@@ -6,9 +6,13 @@ import { StockItem, Category } from "../logic/pos/types";
 import "../styles/print.css"
 //@ts-ignore
 import logo from "../images/boardsource_logo.svg"
+import { useFocus } from "../logic/util/hooks";
+import { saveRowData } from "../logic/util/sheetData";
 const shoppingCart = new ShoppingCart()
 const stockItemManger = new StockItemManager()
 export default function IndexPage() {
+    const [inputRef, setInputFocus] = useFocus()
+
     const [items, setItems] = React.useState<CartStockItem[]>([]),
         [StockItems, setStockItems] = React.useState<StockItem[]>(stockItemManger.currentItems),
         categories: Category[] = ["kit", "switch", "component", "premium product"]
@@ -71,6 +75,21 @@ export default function IndexPage() {
                 return "bg-blue-200"
 
         }
+    }
+    const startPrint = (cash: "cash" | "card") => {
+        const total = getTotal(),
+            tax = Math.floor(getTax())
+        print()
+        //@ts-ignore
+        setInputFocus()
+        saveRowData({
+            ts: new Date().toLocaleString(),
+            items: items.map(item => ({ name: item.name, qty: item.quantity, price: item.price })),
+            subTotal: total,
+            tax: tax,
+            total: Math.floor(total + tax),
+            cashcard: cash
+        })
     }
 
     const fourmSubmit = (e: any) => {
@@ -151,7 +170,7 @@ export default function IndexPage() {
                 </div>
                 <div className="flex flex-wrap ">
                     <form onSubmit={fourmSubmit} className="w-5/6 m-4 flex flex-col">
-                        <input type="text" name="code" placeholder="barcode scan" className="text-black input input-bordered w-full bg-neutral-content" />
+                        <input autoFocus type="text" name="code" placeholder="barcode scan" className="text-black input input-bordered w-full bg-neutral-content" ref={inputRef} />
                         <input type="submit" value="add" className="btn btn-success mt-2" />
                     </form>
                     {StockItems.map((item) => (
@@ -180,9 +199,15 @@ export default function IndexPage() {
                             </Link> */}
                     <button
                         className="px-2 py-1 bg-green-500 text-white rounded"
-                        onClick={() => print()}
+                        onClick={() => startPrint("cash")}
                     >
-                        Print
+                        Print Cash
+                    </button>
+                    <button
+                        className="px-2 py-1 bg-green-500 text-white rounded"
+                        onClick={() => startPrint("card")}
+                    >
+                        Print Card
                     </button>
                 </div>
                 <div className="w-full flex justify-center mt-4">
@@ -327,3 +352,4 @@ export default function IndexPage() {
     );
 }
 export const Head: HeadFC = () => <title>cpy toolbox</title>;
+
