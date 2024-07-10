@@ -5,4 +5,5 @@ export type StockItem = {
     price: number;
     buildGuide?: string;
     category: Category;
+    id: string
 }

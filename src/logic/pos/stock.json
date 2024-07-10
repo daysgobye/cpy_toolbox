@@ -3,237 +3,242 @@
         "name": "3x4",
         "price": 45,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-3x4",
-        "category": "kit"
+        "category": "kit",
+        "id": "0100"
     },
     {
         "name": "Lily58",
         "price": 100,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-LULU_kit",
-        "category": "kit"
+        "category": "kit",
+        "id": "0200"
     },
     {
         "name": "Corne",
         "price": 80,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-corne_crkbd",
-        "category": "kit"
+        "category": "kit",
+        "id": "0300"
     },
     {
         "name": "Reviung41",
         "price": 70,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-reviung41",
-        "category": "kit"
-    },
-    {
-        "name": "Reviung34",
-        "price": 70,
-        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-Rev34build_guide_",
-        "category": "kit"
-    },
-    {
-        "name": "Microdox",
-        "price": 70,
-        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
-        "category": "kit"
+        "category": "kit",
+        "id": "0400"
     },
     {
         "name": "Ferris Sweep",
         "price": 70,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-sweep",
-        "category": "kit"
-    },
-    {
-        "name": "Architeuithis",
-        "price": 70,
-        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-architeuthis_dux",
-        "category": "kit"
+        "category": "kit",
+        "id": "0400"
     },
     {
         "name": "Equals",
         "price": 90,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals_kit",
-        "category": "kit"
+        "category": "kit",
+        "id": "0500"
     },
     {
         "name": "Eternal Pad",
         "price": 70,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
-        "category": "kit"
+        "category": "kit",
+        "id": "0600"
     },
     {
         "name": "lulu",
         "price": 275,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-lulu",
-        "category": "premium product"
+        "category": "premium product",
+        "id": "1100"
     },
     {
         "name": "Equals 60",
         "price": 220,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
-        "category": "premium product"
+        "category": "premium product",
+        "id": "1200"
     },
     {
         "name": "Equals 48",
         "price": 210,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
-        "category": "premium product"
+        "category": "premium product",
+        "id": "1300"
     },
     {
-        "name": "Corne LP",
+        "name": "Unicorne LP",
         "price": 175,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-corne_crkbd",
-        "category": "premium product"
+        "category": "premium product",
+        "id": "1400"
     },
     {
-        "name": "Technik",
+        "name": "Unicorne MX",
+        "price": 175,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-corne_crkbd",
+        "category": "premium product",
+        "id": "1500"
+    },
+    {
+        "name": "Technikable",
         "price": 150,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
-        "category": "premium product"
+        "category": "premium product",
+        "id": "1600"
     },
     {
-        "name": "Beiwagen",
-        "price": 50,
-        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
-        "category": "premium product"
-    },
-    {
-        "name": "Bud",
+        "name": "CrabBroom",
         "price": 210,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
-        "category": "premium product"
+        "category": "premium product",
+        "id": "1700"
     },
     {
         "name": "Gattron switch",
         "price": 6,
-        "category": "switch"
+        "category": "switch",
+        "id": "2100"
     },
     {
         "name": "Durock/TTC Switch",
         "price": 15,
-        "category": "switch"
+        "category": "switch",
+        "id": "2100"
     },
     {
         "name": "Purpz",
         "price": 20,
-        "category": "switch"
+        "category": "switch",
+        "id": "2300"
     },
     {
         "name": "Pro Reds",
         "price": 19,
-        "category": "switch"
+        "category": "switch",
+        "id": "2400"
     },
     {
         "name": "Future Suzuru",
         "price": 165,
-        "category": "key cap"
+        "category": "key cap",
+        "id": "3100"
     },
     {
         "name": "TKL",
         "price": 35,
-        "category": "key cap"
+        "category": "key cap",
+        "id": "3200"
     },
     {
-        "name": "Blanks 50pk",
+        "name": "Blanks MX 50pk",
         "price": 20,
-        "category": "key cap"
+        "category": "key cap",
+        "id": "3300"
     },
     {
-        "name": "Blanks 10pk",
+        "name": "Blanks MX 10pk",
         "price": 3.50,
-        "category": "key cap"
+        "category": "key cap",
+        "id": "3400"
+    },
+    {
+        "name": "Blanks LP 50pk",
+        "price": 20,
+        "category": "key cap",
+        "id": "3500"
+    },
+    {
+        "name": "Blanks LP 10pk",
+        "price": 3.50,
+        "category": "key cap",
+        "id": "3600"
     },
     {
         "name": "Glow",
         "price": 60,
-        "category": "key cap"
+        "category": "key cap",
+        "id": "3700"
     },
     {
         "name": "40's",
         "price": 50,
-        "category": "key cap"
+        "category": "key cap",
+        "id": "3800"
     },
     {
         "name": "Blok",
         "price": 15,
-        "category": "component"
-    },
-    {
-        "name": "Elite-C",
-        "price": 18,
-        "category": "component"
+        "category": "component",
+        "id": "4100"
     },
     {
         "name": "nice!nano",
         "price": 25,
-        "category": "component"
+        "category": "component",
+        "id": "4200"
     },
     {
         "name": "OLED-S",
         "price": 6,
-        "category": "component"
+        "category": "component",
+        "id": "4300"
     },
     {
         "name": "nice!view",
         "price": 20,
-        "category": "component"
+        "category": "component",
+        "id": "4400"
     },
     {
         "name": "LED Pack",
         "price": 10,
-        "category": "component"
+        "category": "component",
+        "id": "4500"
     },
     {
         "name": "3.7v battery",
         "price": 5,
-        "category": "component"
+        "category": "component",
+        "id": "4600"
     },
     {
         "name": "Unicorne PCB Upgrade",
         "price": 25,
-        "category": "component"
-    },
-    {
-        "name": "Beiwagen Upgrade",
-        "price": 10,
-        "category": "component"
-    },
-    {
-        "name": "Technik Upgrade",
-        "price": 20,
-        "category": "component"
-    },
-    {
-        "name": "lulu tenting Upgrade",
-        "price": 20,
-        "category": "component"
-    },
-    {
-        "name": "lulu encoder Upgrade",
-        "price": 15,
-        "category": "component"
+        "category": "component",
+        "id": "4700"
     },
     {
         "name": "DeskMat",
         "price": 15,
-        "category": "accessories"
+        "category": "accessories",
+        "id": "5100"
     },
     {
         "name": "USB Cable",
         "price": 8,
-        "category": "accessories"
+        "category": "accessories",
+        "id": "5200"
     },
     {
         "name": "Trrs Cable",
         "price": 5,
-        "category": "accessories"
+        "category": "accessories",
+        "id": "5300"
     },
     {
         "name": "2u Stab",
         "price": 3,
-        "category": "accessories"
+        "category": "accessories",
+        "id": "5400"
     },
     {
         "name": "Stab Kit",
         "price": 18,
-        "category": "accessories"
+        "category": "accessories",
+        "id": "5500"
     }
 ]

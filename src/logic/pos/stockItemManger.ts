@@ -38,4 +38,7 @@ export class StockItemManager {
         this.notifyOfChange()
 
     }
+    findItem(id: string) {
+        return this.stockItems.find(item => item.id === id)
+    }
 }

@@ -1,3 +1,9 @@
+.phide {
+    display: none;
+    width: 100%;
+    /* text-align: end; */
+}
+
 @media print {
 
     /* All your print styles go here */
@@ -7,5 +13,9 @@
 
     .print-full {
         width: 100% !important;
+    }
+
+    .phide {
+        display: block;
     }
 }

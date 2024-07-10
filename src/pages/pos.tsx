@@ -1,6 +1,5 @@
 import * as React from "react";
 import { HeadFC, Link, PageProps } from "gatsby";
-import Layout from "../components/layout";
 import { CartStockItem, ShoppingCart } from "../logic/pos/shoppingCart";
 import { StockItemManager } from "../logic/pos/stockItemManger";
 import { StockItem, Category } from "../logic/pos/types";
@@ -27,6 +26,7 @@ export default function IndexPage() {
             shoppingCart.removeObserver(updateItems)
         }
     })
+
     const addToCart = (item: StockItem) => {
         shoppingCart.addItem(item);
     };
@@ -73,10 +73,19 @@ export default function IndexPage() {
         }
     }
 
-
+    const fourmSubmit = (e: any) => {
+        e.preventDefault()
+        const rawcode = e.target.code.value,
+            code = rawcode.substr(rawcode.length - 4)
+        e.target.reset();
+        const item = stockItemManger.findItem(code)
+        if (item) {
+            addToCart(item)
+        }
+    }
 
     return (
-        <div className="flex">
+        <div className="flex" data-theme="light">
             <div className="w-7/12 print-hide">
                 <div className="flex justify-between mb-4">
                     <button
@@ -140,7 +149,11 @@ export default function IndexPage() {
                         Filter Accessories
                     </button>
                 </div>
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap ">
+                    <form onSubmit={fourmSubmit} className="w-5/6 m-4 flex flex-col">
+                        <input type="text" name="code" placeholder="barcode scan" className="text-black input input-bordered w-full bg-neutral-content" />
+                        <input type="submit" value="add" className="btn btn-success mt-2" />
+                    </form>
                     {StockItems.map((item) => (
                         <button
                             key={item.name}
@@ -176,21 +189,47 @@ export default function IndexPage() {
 
                     <img src={logo} alt="logo" />
                 </div>
-                <hr className="mt-4 mb-4 mr-4 divide-black border-black" />
+
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <hr className="mt-4 mb-4  divide-black border-black" />
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+
+
                 <ul>
                     {items.map((item) => (
-                        <li key={item.name} className="flex justify-between mb-2">
-                            <div className="grid grid-cols-3 gap-4 w-full">
-                                <p>
+                        <li key={item.name} className="flex justify-between mb-4">
+                            <div className="grid grid-cols-6 w-full text-xs">
+                                <p className="text-nowrap col-span-3">
                                     {item.name}
                                 </p>
-                                <p>
-                                    Qty: {item.quantity}
-                                </p>
                                 <p className="text-nowrap">
-                                    EA(${item.price}) - ${item.price * item.quantity}
+                                    ${item.price}
                                 </p>
+                                <p className="text-nowrap col-span-2">
+                                    x{item.quantity} - ${item.price * item.quantity}
+                                </p>
+                                <p className="phide">.</p>
+
+                                <p className="phide">.</p>
+
                             </div>
+
+
                             <div className="print-hide flex">
                                 <button
                                     className="px-1 bg-blue-500 text-white rounded mr-2"
@@ -214,22 +253,73 @@ export default function IndexPage() {
                         </li>
                     ))}
                 </ul>
-                <hr className="mt-4 mb-4 mr-4 divide-black border-black" />
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <hr className="mt-4 mb-4  divide-black border-black" />
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
+                <p className="phide">.</p>
+
                 <div className=" w-full print-full pr-[50px]">
                     <div className="flex justify-between">
                         <p className="">Subtotal:</p>
                         <p className="text-left w-1/5">${getTotal()}</p>
                     </div>
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
 
                     <div className="flex justify-between">
                         <p className="">Tax:</p>
-                        <p className="text-left w-1/5"> ${getTax()}</p>
+                        <p className="text-left w-1/5"> ${Math.floor(getTax())}</p>
                     </div>
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
 
                     <div className="flex justify-between">
                         <p className="">Total:</p>
-                        <p className="text-left w-1/5"> ${getTotal() + getTax()}</p>
+                        <p className="text-left w-1/5"> ${Math.floor(getTotal() + getTax())}</p>
                     </div>
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
 
                 </div>
             </div>
