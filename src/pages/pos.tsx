@@ -358,6 +358,8 @@ export default function IndexPage() {
 
                     <p className="phide">.</p>
                     <p className="text-center">12-7-100-BC</p>
+                    <p className="text-center text-4xl">DC32DC32DC32DC32DC32DC32DC32DC32</p>
+
 
                 </div>
             </div>
