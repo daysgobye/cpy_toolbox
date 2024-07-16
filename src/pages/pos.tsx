@@ -8,6 +8,7 @@ import "../styles/print.css"
 import logo from "../images/boardsource_logo.svg"
 import { useFocus } from "../logic/util/hooks";
 import { saveRowData } from "../logic/util/sheetData";
+import Barcode from "react-barcode";
 const shoppingCart = new ShoppingCart()
 const stockItemManger = new StockItemManager()
 export default function IndexPage() {
@@ -345,6 +346,18 @@ export default function IndexPage() {
                     <p className="phide">.</p>
 
                     <p className="phide">.</p>
+                    <Barcode value="OLUATJZNOYIUAVUTUTZNKQKEIGVHUD" />
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+                    <p className="text-center">12-7-100-BC</p>
 
                 </div>
             </div>
