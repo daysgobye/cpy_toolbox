@@ -357,7 +357,6 @@ export default function IndexPage() {
 
                     <p className="phide">.</p>
 
-
                     <img width="200px" height="200px" src={build_guide_qr} alt="qr code" />
                     <p className="phide">.</p>
 
