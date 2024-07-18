@@ -10,6 +10,9 @@ import { useFocus } from "../logic/util/hooks";
 import { saveRowData } from "../logic/util/sheetData";
 //@ts-ignore
 import build_guide_qr from "../images/build_guide_qr.png";
+//@ts-ignore
+import code_qr from "../images/OLUATJZNOYIUAVUTGZJI.png";
+
 const shoppingCart = new ShoppingCart()
 const stockItemManger = new StockItemManager()
 
@@ -350,6 +353,10 @@ export default function IndexPage() {
 
                     <p className="phide">.</p>
 
+
+
+                    <p className="text-center text-4xl">DC32</p>
+
                     <p className="phide">.</p>
 
                     <p className="phide">.</p>
@@ -362,7 +369,59 @@ export default function IndexPage() {
 
                     <p className="phide">.</p>
                     <p className="text-center">12-7-100-BC</p>
-                    <p className="text-center text-4xl">DC32DC32DC32DC32DC32DC32DC32DC32</p>
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+                    <img width="200px" height="200px" src={code_qr} alt="qr code" />
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
 
 
                 </div>
