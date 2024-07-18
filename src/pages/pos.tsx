@@ -8,9 +8,12 @@ import "../styles/print.css"
 import logo from "../images/boardsource_logo.svg"
 import { useFocus } from "../logic/util/hooks";
 import { saveRowData } from "../logic/util/sheetData";
-import Barcode from "react-barcode";
+//@ts-ignore
+import build_guide_qr from "../images/build_guide_qr.png";
 const shoppingCart = new ShoppingCart()
 const stockItemManger = new StockItemManager()
+
+
 export default function IndexPage() {
     const [inputRef, setInputFocus] = useFocus()
 
@@ -338,7 +341,9 @@ export default function IndexPage() {
                     <p className="phide">.</p>
 
                     <p className="phide">.</p>
+                    <p className="text-center text-xl">Check our build guides here</p>
 
+                    <img width="200px" height="200px" src={build_guide_qr} alt="qr code" />
                     <p className="phide">.</p>
 
                     <p className="phide">.</p>
@@ -346,7 +351,6 @@ export default function IndexPage() {
                     <p className="phide">.</p>
 
                     <p className="phide">.</p>
-                    <Barcode value="OLUATJZNOYIUAVUTUTZNKQKEIGVHUD" />
 
                     <p className="phide">.</p>
 
