@@ -345,6 +345,18 @@ export default function IndexPage() {
 
                     <p className="phide">.</p>
                     <p className="text-center text-xl">Check our build guides here</p>
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
+                    <p className="phide">.</p>
+
 
                     <img width="200px" height="200px" src={build_guide_qr} alt="qr code" />
                     <p className="phide">.</p>
