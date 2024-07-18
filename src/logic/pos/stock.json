@@ -8,66 +8,80 @@
     },
     {
         "name": "Lily58",
-        "price": 100,
+        "price": 90,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-LULU_kit",
         "category": "kit",
         "id": "0200"
     },
     {
         "name": "Corne",
-        "price": 80,
+        "price": 85,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-corne_crkbd",
         "category": "kit",
         "id": "0300"
     },
     {
         "name": "Reviung41",
-        "price": 70,
+        "price": 65,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-reviung41",
         "category": "kit",
         "id": "0400"
     },
     {
         "name": "Ferris Sweep",
-        "price": 70,
+        "price": 80,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-sweep",
         "category": "kit",
         "id": "0400"
     },
     {
         "name": "Equals",
-        "price": 90,
+        "price": 65,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals_kit",
         "category": "kit",
         "id": "0500"
     },
     {
         "name": "Eternal Pad",
-        "price": 70,
+        "price": 60,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
         "category": "kit",
         "id": "0600"
     },
     {
+        "name": "Fight Stick",
+        "price": 40,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
+        "category": "kit",
+        "id": "0700"
+    },
+    {
+        "name": "Phone+Controller",
+        "price": 30,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
+        "category": "kit",
+        "id": "0800"
+    },
+    {
+        "name": "LP 60 Kit",
+        "price": 70,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
+        "category": "kit",
+        "id": "0900"
+    },
+    {
         "name": "lulu",
-        "price": 275,
+        "price": 280,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-lulu",
         "category": "premium product",
         "id": "1100"
     },
     {
-        "name": "Equals 60",
+        "name": "Equals ALU",
         "price": 220,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
         "category": "premium product",
         "id": "1200"
-    },
-    {
-        "name": "Equals 48",
-        "price": 210,
-        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-equals",
-        "category": "premium product",
-        "id": "1300"
     },
     {
         "name": "Unicorne LP",
@@ -92,86 +106,122 @@
     },
     {
         "name": "CrabBroom",
-        "price": 210,
+        "price": 145,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
         "category": "premium product",
         "id": "1700"
     },
     {
-        "name": "Gattron switch",
+        "name": "Gattron Yellow",
         "price": 6,
         "category": "switch",
         "id": "2100"
     },
     {
-        "name": "Durock/TTC Switch",
-        "price": 15,
+        "name": "Gattron Brown",
+        "price": 6,
         "category": "switch",
-        "id": "2100"
+        "id": "2200"
     },
     {
-        "name": "Purpz",
-        "price": 20,
+        "name": "Gattron Clear",
+        "price": 16,
         "category": "switch",
         "id": "2300"
     },
     {
-        "name": "Pro Reds",
-        "price": 19,
+        "name": "Gattron Blue",
+        "price": 6,
         "category": "switch",
         "id": "2400"
     },
     {
+        "name": "Durock Speed Silver",
+        "price": 8,
+        "category": "switch",
+        "id": "2500"
+    },
+    {
+        "name": "Purpz",
+        "price": 18,
+        "category": "switch",
+        "id": "2600"
+    },
+    {
+        "name": "Pro Reds",
+        "price": 18,
+        "category": "switch",
+        "id": "2700"
+    },
+    {
+        "name": "Choc Reds",
+        "price": 13,
+        "category": "switch",
+        "id": "2800"
+    },
+    {
+        "name": "Choc White",
+        "price": 13,
+        "category": "switch",
+        "id": "2900"
+    },
+    {
+        "name": "Choc Brown",
+        "price": 13,
+        "category": "switch",
+        "id": "2110"
+    },
+    {
         "name": "Future Suzuru",
-        "price": 165,
+        "price": 90,
         "category": "key cap",
         "id": "3100"
     },
     {
         "name": "TKL",
-        "price": 35,
+        "price": 20,
         "category": "key cap",
         "id": "3200"
     },
     {
         "name": "Blanks MX 50pk",
-        "price": 20,
+        "price": 25,
         "category": "key cap",
         "id": "3300"
     },
     {
         "name": "Blanks MX 10pk",
-        "price": 3.50,
+        "price": 4,
         "category": "key cap",
         "id": "3400"
     },
     {
         "name": "Blanks LP 50pk",
-        "price": 20,
+        "price": 25,
         "category": "key cap",
         "id": "3500"
     },
     {
         "name": "Blanks LP 10pk",
-        "price": 3.50,
+        "price": 4,
         "category": "key cap",
         "id": "3600"
     },
     {
         "name": "Glow",
-        "price": 60,
+        "price": 50,
         "category": "key cap",
         "id": "3700"
     },
     {
-        "name": "40's",
-        "price": 50,
+        "name": "Engage",
+        "price": 80,
         "category": "key cap",
         "id": "3800"
     },
     {
         "name": "Blok",
-        "price": 15,
+        "price": 14,
         "category": "component",
         "id": "4100"
     },
@@ -183,7 +233,7 @@
     },
     {
         "name": "OLED-S",
-        "price": 6,
+        "price": 12,
         "category": "component",
         "id": "4300"
     },
@@ -195,18 +245,24 @@
     },
     {
         "name": "LED Pack",
-        "price": 10,
+        "price": 15,
         "category": "component",
         "id": "4500"
     },
     {
         "name": "3.7v battery",
-        "price": 5,
+        "price": 10,
         "category": "component",
         "id": "4600"
     },
     {
         "name": "Unicorne PCB Upgrade",
+        "price": 25,
+        "category": "component",
+        "id": "4700"
+    },
+    {
+        "name": "LILY58 PCB Upgrade",
         "price": 25,
         "category": "component",
         "id": "4700"
@@ -219,26 +275,20 @@
     },
     {
         "name": "USB Cable",
-        "price": 8,
+        "price": 9,
         "category": "accessories",
         "id": "5200"
     },
     {
         "name": "Trrs Cable",
-        "price": 5,
+        "price": 6,
         "category": "accessories",
         "id": "5300"
     },
     {
-        "name": "2u Stab",
-        "price": 3,
+        "name": "LUBE",
+        "price": 13,
         "category": "accessories",
         "id": "5400"
-    },
-    {
-        "name": "Stab Kit",
-        "price": 18,
-        "category": "accessories",
-        "id": "5500"
     }
 ]
