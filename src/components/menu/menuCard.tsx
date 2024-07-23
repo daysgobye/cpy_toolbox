@@ -4,21 +4,20 @@ import { MenuItem, MenuSection } from "../../logic/types";
 import MenuItemView from "./menuItem";
 import MenuSectionView from "./menuSection";
 type Props = {
-    sections: MenuSection[]
-    moveToOos: (title: string) => void
+  sections: MenuSection[]
+  moveToOos: (title: string) => void
+  type: 'SolderableKits' | 'PremiumProducts' | 'Keycaps' | 'Switches' | 'Accessories' | 'Controllers'
+
 }
 
-export default function MenuCard({ sections, moveToOos }: Props) {
+export default function MenuCard({ sections, moveToOos, type }: Props) {
 
 
-    return (
-        <div className="card bg-white shadow-xl mr-[150px] last:mr-0">
-            <div className="card-body">
-
-                {sections.map((section, index) => (
-                    <MenuSectionView key={index} section={section} moveToOos={moveToOos} />
-                ))}
-            </div>
-        </div>
-    );
+  return (
+    <div className={`flex w-full h-full bg-white rounded-xl shadow-xl ${type !== 'Switches' && type !== 'Keycaps' ? 'p-10' : 'p-5'}`}>
+      {sections.map((section, index) => (
+        <MenuSectionView key={index} section={section} moveToOos={moveToOos} type={type} />
+      ))}
+    </div>
+  );
 }
