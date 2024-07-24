@@ -1,77 +1,18 @@
 import * as React from "react";
 import { Link, type HeadFC, type PageProps } from "gatsby";
-import NetBg from "../components/menu/backgrounds/nets";
 import { MenuSection } from "../logic/types";
-import MenuSectionView from "../components/menu/menuSection";
+
 import { useState } from "react";
-import MenuCard from "../components/menu/menuCard";
-import ImageSlideShow from "../components/menu/imageSlideShow";
+
 import { mainImages } from '../logic/mainSlideshowImages'
 import { subTopSlideshowImages } from "../logic/subTopSlideshowImages"
 import { subBottomSlideshowImages } from "../logic/subBottomSlideshowImages"
+import ImageSlideShow from "../components/menu/imageSlideShow";
+import MenuCard from "../components/menu/menuCard";
 
 
 
-const defaultData: MenuSection[][] = [
-  [
-    {
-      title: "Premium Products",
-      price: 0,
-      description: "",
-      image: "lily58",
-      items: [{
-        title: "Rechtek",
-        description: "60% Low Profile BLE",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      {
-        title: "lulu",
-        description: "60% Split",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      {
-        title: "Unicorne",
-        description: "40% Split",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      {
-        title: "Crab Broom",
-        description: "30% Split",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      {
-        title: "Equals Ortho",
-        description: "40% / 60% Ortholinear",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      {
-        title: "Technikable",
-        description: "40% Low Profile BLE",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      {
-        title: "DC32 Artisan",
-        description: "Aluminum Artisan Keycap",
-        image: "lily58",
-        inStock: true,
-        price: 180
-      },
-      ]
-    }
-  ],
-]
+
 
 const fr4Kits: MenuSection[][] = [
   [
@@ -340,23 +281,33 @@ const keycapProduct: MenuSection[][] = [
 
 
 export default function MenuPage() {
-  const [menu, setMenu] = useState(defaultData),
-    [solderableKits, setSolderableKits] = useState(fr4Kits),
+  const [solderableKits, setSolderableKits] = useState(fr4Kits),
     [switchList, setSwitchList] = useState(switchProduct),
     [keycapList, setKeycapList] = useState(keycapProduct),
     [renderedImageOne, setRenderedImageOne] = useState(subTopSlideshowImages[0]),
     [renderedImageTwo, setRenderedImageTwo] = useState(subBottomSlideshowImages[0])
   // React.useEffect(() => {
-  //   const currentData = localStorage.getItem("menu")
-  //   if (currentData) {
-  //     setMenu(JSON.parse(currentData))
+  //   const kcurrentData = localStorage.getItem("kmenu")
+  //   const scurrentData = localStorage.getItem("smenu")
+  //   const ccurrentData = localStorage.getItem("cmenu")
+  //   if (kcurrentData) {
+  //     setSolderableKits(JSON.parse(kcurrentData))
   //   } else {
-  //     localStorage.setItem("menu", JSON.stringify(menu))
+  //     localStorage.setItem("kmenu", JSON.stringify(fr4Kits))
+  //   }
+  //   if (scurrentData) {
+  //     setSwitchList(JSON.parse(scurrentData))
+  //   } else {
+  //     localStorage.setItem("smenu", JSON.stringify(switchProduct))
+  //   }
+  //   if (ccurrentData) {
+  //     setSwitchList(JSON.parse(ccurrentData))
+  //   } else {
+  //     localStorage.setItem("cmenu", JSON.stringify(keycapProduct))
   //   }
   // }, [])
   const moveToOos = (title: string) => {
-    const newMenue = menu.map(sections => {
-
+    const newMenue = solderableKits.map(sections => {
       return sections.map(section => {
         const newItems = section.items.map(item => {
           if (item.title === title) {
@@ -367,34 +318,73 @@ export default function MenuPage() {
         })
         return { ...section, items: newItems }
       }
-
       )
-
     })
-    localStorage.setItem("menu", JSON.stringify(menu))
-    setMenu(newMenue)
+    localStorage.setItem("kmenu", JSON.stringify(solderableKits))
+    setSolderableKits(newMenue)
   }
 
+  const moveToOosSwitch = (title: string) => {
+    const newMenue = switchList.map(sections => {
+      return sections.map(section => {
+        const newItems = section.items.map(item => {
+          if (item.title === title) {
+            return { ...item, inStock: !item.inStock }
+          } else {
+            return item
+          }
+        })
+        return { ...section, items: newItems }
+      }
+      )
+    })
+    localStorage.setItem("smenu", JSON.stringify(switchList))
+    setSwitchList(newMenue)
+  }
+  const moveToOosKeycap = (title: string) => {
+    const newMenue = keycapList.map(sections => {
+      return sections.map(section => {
+        const newItems = section.items.map(item => {
+          if (item.title === title) {
+            return { ...item, inStock: !item.inStock }
+          } else {
+            return item
+          }
+        })
+        return { ...section, items: newItems }
+      }
+      )
+    })
+    localStorage.setItem("cmenu", JSON.stringify(keycapList))
+    setSolderableKits(newMenue)
+  }
+
+
+
   const reset = () => {
-    localStorage.setItem("menu", JSON.stringify(defaultData))
-    setMenu(defaultData)
+    localStorage.setItem("kmenu", JSON.stringify(fr4Kits))
+    setSolderableKits(fr4Kits)
+    localStorage.setItem("cmenu", JSON.stringify(keycapProduct))
+    setKeycapList(keycapProduct)
+    localStorage.setItem("smenu", JSON.stringify(switchProduct))
+    setSwitchList(switchProduct)
   }
   return (
     <>
 
 
-      <div className="flex menu menu_right bg-purple-100">
+      <div className="flex fr4Kits menu_right bg-purple-100">
         {/* <NetBg /> */}
         <div className="flex aspect-video p-[5rem]">
           <div className="flex h-full flex-1 mr-[3.5rem]">
             {/* <PremiumProduct /> */}
             {solderableKits.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='SolderableKits' slideShowImage={renderedImageOne} />)}
-            {/* <div
-              className="absolute w-[100px] h-[100px] bg-rose-500 opacity-1 hover:opacity-100	 "
+            <div
+              className="absolute w-[100px] h-[100px] bg-rose-500 opacity-0 hover:opacity-100	 "
               onClick={reset}
             >
               RESET MENUE
-            </div> */}
+            </div>
           </div>
           <div className="flex flex-col w-1/2 h-full">
             <div className="flex h-1/2 justify-between">
@@ -402,14 +392,14 @@ export default function MenuPage() {
                 <ImageSlideShow small images={subTopSlideshowImages} setRenderedImage={setRenderedImageOne} />
               </div>
               {/* <div className="w-[3rem]"></div> */}
-              <div className="test menu flex-1 h-full aspect-square w-1/2 max-w-[47%]">
-                {switchList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Switches' slideShowImage={renderedImageOne} />)}
+              <div className="test fr4Kits flex-1 h-full aspect-square w-1/2 max-w-[47%]">
+                {switchList.map(section => <MenuCard sections={section} moveToOos={moveToOosSwitch} type='Switches' slideShowImage={renderedImageOne} />)}
               </div>
             </div>
             <div className="h-[3.25rem]"></div>
             <div className="flex h-1/2 justify-between">
-              <div className="test menu flex-1 h-full aspect-square w-1/2 max-w-[47%]">
-                {keycapList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Keycaps' slideShowImage={renderedImageTwo} />)}
+              <div className="test fr4Kits flex-1 h-full aspect-square w-1/2 max-w-[47%]">
+                {keycapList.map(section => <MenuCard sections={section} moveToOos={moveToOosKeycap} type='Keycaps' slideShowImage={renderedImageTwo} />)}
               </div>
               {/* <div className="w-[3rem]"></div> */}
               <div className="flex slideshow aspect-square w-1/2 max-w-[47%]">
@@ -436,7 +426,7 @@ export default function MenuPage() {
     //   {/* <NetBg /> */}
     //   <div className="flex items-center justify-center h-screen ">
     //     <ImageSlideShow />
-    //     {menu.map(section => <MenuCard sections={section} moveToOos={moveToOos} />)}
+    //     {fr4Kits.map(section => <MenuCard sections={section} moveToOos={moveToOos} />)}
     //   </div>
     //   <div
     //     className="absolute w-[100px] h-[100px] bg-rose-500 opacity-0 hover:opacity-100	 "
@@ -447,4 +437,4 @@ export default function MenuPage() {
     // </div>
   );
 }
-export const Head: HeadFC = () => <title>DC-32 menu</title>;
+export const Head: HeadFC = () => <title>DC-32 fr4Kits</title>;

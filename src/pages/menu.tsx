@@ -344,7 +344,8 @@ export default function MenuPage() {
     [solderableKits, setSolderableKits] = useState(fr4Kits),
     [switchList, setSwitchList] = useState(switchProduct),
     [keycapList, setKeycapList] = useState(keycapProduct),
-    [renderedImage, setRenderedImage] = useState()
+    [renderedImage, setRenderedImage] = useState(mainImages[0])
+
   // React.useEffect(() => {
   //   const currentData = localStorage.getItem("menu")
   //   if (currentData) {
@@ -384,11 +385,11 @@ export default function MenuPage() {
         {/* <NetBg /> */}
         <div className="flex aspect-video p-[5rem]">
           <div className="flex slideshow aspect-square">
-            <ImageSlideShow images={mainImages} />
+            <ImageSlideShow images={mainImages} setRenderedImage={setRenderedImage} />
           </div>
           <div className="flex h-full bg-white flex-1 ml-[5rem]">
             {/* <PremiumProduct /> */}
-            {menu.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='PremiumProducts' />)}
+            {menu.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='PremiumProducts' slideShowImage={renderedImage} />)}
             {/* <div
               className="absolute w-[100px] h-[100px] bg-rose-500 opacity-1 hover:opacity-100	 "
               onClick={reset}
@@ -440,7 +441,7 @@ export default function MenuPage() {
         <div className="flex aspect-video p-[5rem]">
           <div className="flex h-full flex-1 mr-[3.5rem]">
             {/* <PremiumProduct /> */}
-            {solderableKits.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='SolderableKits' />)}
+            {solderableKits.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='SolderableKits' slideShowImage={renderedImage} />)}
             {/* <div
               className="absolute w-[100px] h-[100px] bg-rose-500 opacity-1 hover:opacity-100	 "
               onClick={reset}
@@ -451,21 +452,21 @@ export default function MenuPage() {
           <div className="flex flex-col w-1/2 h-full">
             <div className="flex h-1/2 justify-between">
               <div className="flex slideshow aspect-square w-1/2 max-w-[47%]">
-                <ImageSlideShow small images={subTopSlideshowImages} />
+                <ImageSlideShow small images={subTopSlideshowImages} setRenderedImage={setRenderedImage} />
               </div>
               {/* <div className="w-[3rem]"></div> */}
               <div className="test menu flex-1 h-full aspect-square w-1/2 max-w-[47%]">
-                {switchList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Switches' />)}
+                {switchList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Switches' slideShowImage={renderedImage} />)}
               </div>
             </div>
             <div className="h-[3.25rem]"></div>
             <div className="flex h-1/2 justify-between">
               <div className="test menu flex-1 h-full aspect-square w-1/2 max-w-[47%]">
-                {keycapList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Keycaps' />)}
+                {keycapList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Keycaps' slideShowImage={renderedImage} />)}
               </div>
               {/* <div className="w-[3rem]"></div> */}
               <div className="flex slideshow aspect-square w-1/2 max-w-[47%]">
-                <ImageSlideShow small images={subBottomSlideshowImages} />
+                <ImageSlideShow small images={subBottomSlideshowImages} setRenderedImage={setRenderedImage} />
               </div>
             </div>
           </div>
