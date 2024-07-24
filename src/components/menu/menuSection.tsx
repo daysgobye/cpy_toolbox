@@ -1,15 +1,17 @@
 import * as React from "react";
 import { Link, type HeadFC, type PageProps } from "gatsby";
-import { MenuItem, MenuSection } from "../../logic/types";
+import { MenuItem, MenuSection, SlideShowImage } from "../../logic/types";
 import MenuItemView from "./menuItem";
 import { getImage } from "./images";
 type Props = {
   section: MenuSection
   moveToOos: (title: string) => void
   type: 'SolderableKits' | 'PremiumProducts' | 'Keycaps' | 'Switches' | 'Accessories' | 'Controllers'
+  slideShowImage: SlideShowImage
+
 }
 
-export default function MenuSectionView({ section, moveToOos, type }: Props) {
+export default function MenuSectionView({ section, moveToOos, type, slideShowImage }: Props) {
 
   const renderPrice = () => {
     if (section.price > 0) {
@@ -36,7 +38,7 @@ export default function MenuSectionView({ section, moveToOos, type }: Props) {
       {/* </div> */}
       {/* <hr /> */}
 
-      {section.items.map((item, index) => <MenuItemView key={index} item={item} moveToOos={moveToOos} type={type} />)}
+      {section.items.map((item, index) => <MenuItemView key={index} item={item} moveToOos={moveToOos} type={type} slideShowImage={slideShowImage} />)}
 
     </div>
   );

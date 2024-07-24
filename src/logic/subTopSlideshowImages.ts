@@ -16,12 +16,12 @@ import gatClear from '../images/menuImages/sub_top_slideshow/gateron_silent_clea
 import gatYellow from '../images/menuImages/sub_top_slideshow/gateron_yellow_1_1_main.jpg'
 
 export const subTopSlideshowImages = [
-  { title: 'Choc Brown', src: chocBrown },
-  { title: 'Choc Purpz', src: chocPurpz },
-  { title: 'Choc Red', src: chocRed },
-  { title: 'Choc White', src: chocWhite },
-  { title: 'Gat Blue', src: gatBlue },
-  { title: 'Gat Brown', src: gatBrown },
-  { title: 'Gat Clear', src: gatClear },
-  { title: 'Gat Yellow', src: gatYellow }
+  { productTitle: "", title: 'Choc Brown', src: chocBrown },
+  { productTitle: "", title: 'Choc Purpz', src: chocPurpz },
+  { productTitle: "", title: 'Choc Red', src: chocRed },
+  { productTitle: "", title: 'Choc White', src: chocWhite },
+  { productTitle: "", title: 'Gat Blue', src: gatBlue },
+  { productTitle: "", title: 'Gat Brown', src: gatBrown },
+  { productTitle: "", title: 'Gat Clear', src: gatClear },
+  { productTitle: "", title: 'Gat Yellow', src: gatYellow }
 ]

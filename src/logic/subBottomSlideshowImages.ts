@@ -6,7 +6,10 @@ import mainMBK from '../images/menuImages/sub_bottom_slideshow/_main_mbk_blank_1
 import engageClose from '../images/menuImages/sub_bottom_slideshow/_mbk_engage_main_1_1_hover.jpg'
 
 export const subBottomSlideshowImages = [
-  { title: 'Blank XDA', src: mainXDA },
-  { title: 'Blank MBK', src: mainMBK },
-  { title: 'MBK Engage', src: engageClose },
+  { productTitle: "", title: 'Blank XDA', src: mainXDA },
+  { productTitle: "", title: 'Blank MBK', src: mainMBK },
+  { productTitle: "", title: 'MBK Engage', src: engageClose },
+  { productTitle: "", title: 'Blank XDA', src: mainXDA },
+  { productTitle: "", title: 'Blank MBK', src: mainMBK },
+  { productTitle: "", title: 'MBK Engage', src: engageClose },
 ]

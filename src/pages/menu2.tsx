@@ -380,29 +380,12 @@ export default function MenuPage() {
   }
   return (
     <>
-      <div className="flex menu menu_left hidden">
-        {/* <NetBg /> */}
-        <div className="flex aspect-video p-[5rem]">
-          <div className="flex slideshow aspect-square">
-            <ImageSlideShow images={mainImages} />
-          </div>
-          <div className="flex h-full bg-white flex-1 ml-[5rem]">
-            {/* <PremiumProduct /> */}
-            {menu.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='PremiumProducts' />)}
-            {/* <div
-              className="absolute w-[100px] h-[100px] bg-rose-500 opacity-1 hover:opacity-100	 "
-              onClick={reset}
-            >
-              RESET MENUE
-            </div> */}
-          </div>
-        </div>
-      </div>
 
 
 
 
-      <div className="flex menu menu_center justify-center hidden">
+
+      <div className="flex menu menu_center justify-center ">
         {/* <NetBg /> */}
         <div className="flex aspect-video p-[5rem] bg-green-300 self-center justify-center flex-1 h-full">
           <div className="center flex flex-col self-center bg-red-200 flex-1">
@@ -435,43 +418,7 @@ export default function MenuPage() {
 
         </div>
       </div>
-      <div className="flex menu menu_right bg-purple-100">
-        {/* <NetBg /> */}
-        <div className="flex aspect-video p-[5rem]">
-          <div className="flex h-full flex-1 mr-[3.5rem]">
-            {/* <PremiumProduct /> */}
-            {solderableKits.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='SolderableKits' />)}
-            {/* <div
-              className="absolute w-[100px] h-[100px] bg-rose-500 opacity-1 hover:opacity-100	 "
-              onClick={reset}
-            >
-              RESET MENUE
-            </div> */}
-          </div>
-          <div className="flex flex-col w-1/2 h-full">
-            <div className="flex h-1/2 justify-between">
-              <div className="flex slideshow aspect-square w-1/2 max-w-[47%]">
-                <ImageSlideShow small images={subTopSlideshowImages} />
-              </div>
-              {/* <div className="w-[3rem]"></div> */}
-              <div className="test menu flex-1 h-full aspect-square w-1/2 max-w-[47%]">
-                {switchList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Switches' />)}
-              </div>
-            </div>
-            <div className="h-[3.25rem]"></div>
-            <div className="flex h-1/2 justify-between">
-              <div className="test menu flex-1 h-full aspect-square w-1/2 max-w-[47%]">
-                {keycapList.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='Keycaps' />)}
-              </div>
-              {/* <div className="w-[3rem]"></div> */}
-              <div className="flex slideshow aspect-square w-1/2 max-w-[47%]">
-                <ImageSlideShow small images={subBottomSlideshowImages} />
-              </div>
-            </div>
-          </div>
 
-        </div>
-      </div>
 
     </>
 

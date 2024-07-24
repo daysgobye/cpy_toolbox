@@ -44,6 +44,21 @@ export default function IndexPage() {
       link: "/pos",
       description: "a bs pos",
     },
+    {
+      title: "menu left",
+      link: "/menu1",
+      description: "for the left screen",
+    },
+    {
+      title: "menu center",
+      link: "/menu2",
+      description: "for the center screen",
+    },
+    {
+      title: "menu right",
+      link: "/menu3",
+      description: "for the right screen",
+    },
   ];
   return (
     <Layout>

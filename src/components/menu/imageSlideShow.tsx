@@ -1,41 +1,92 @@
 import * as React from "react";
+import { SlideShowImage } from "../../logic/types";
+
+function useStateCallback<T>(
+  initialState: T
+): [T, (state: T, cb?: (state: T) => void) => void] {
+  const [state, setState] = React.useState(initialState);
+  const cbRef = React.useRef<((state: T) => void) | undefined>(undefined); // init mutable ref container for callbacks
+
+  const setStateCallback = React.useCallback((state: T, cb?: (state: T) => void) => {
+    cbRef.current = cb; // store current, passed callback in ref
+    setState(state);
+  }, []); // keep object reference stable, exactly like `useState`
+
+  React.useEffect(() => {
+    // cb.current is `undefined` on initial render,
+    // so we only invoke callback on state *updates*
+    if (cbRef.current) {
+      cbRef.current(state);
+      cbRef.current = undefined; // reset callback after execution
+    }
+  }, [state]);
+
+  return [state, setStateCallback];
+}
+
+const getRandomFromArray = (imageList: SlideShowImage[]) => {
+  const randomIndex = Math.floor(Math.random() * imageList.length - 1)
+  const newImage = imageList[randomIndex]
+  if (newImage && newImage.src) {
+    return newImage
+  } else {
+    return getRandomFromArray(imageList)
+  }
+}
 
 
 type Props = {
   small?: boolean;
-  images: { title: string, src: string }[]
+  images: SlideShowImage[]
+  setRenderedImage: (image: SlideShowImage) => void
 }
 
-// const images = [
-//     { title: "Crab Broom 30% Split", src: "https://boardsourcev2.nyc3.digitaloceanspaces.com/ferris_sweep_main_1_1-1709737463653.jpg", },
-//     { title: "Lily58 Kit 60% Split", src: "https://boardsourcev2.nyc3.digitaloceanspaces.com/lily_1_1-1687460016543.jpg", },
-//     { title: "Unicorn LP 40% Split ", src: "https://boardsourcev2.nyc3.digitaloceanspaces.com/unicorne_lp_red_plain_main_1_1-1697651735052.jpg", },
-//     { title: "Unicorn MX 40% Split ", src: "https://boardsourcev2.nyc3.digitaloceanspaces.com/unicorne_mx_magic_girl_yellow_main_1_1-1697650993659.jpg", },
-//     { title: "LuLu 60% Split", src: "https://v2serverstorage.s3.us-west-1.amazonaws.com/lulu_main_1_1%20%281%29.jpg", },
-//     { title: "Blok RP2040", src: "https://boardsourcev2.nyc3.digitaloceanspaces.com/blok_components_1_1-1694724454632.png", },
-//     { title: "Equals 48 40% Ortho", src: "https://boardsourcev2.nyc3.digitaloceanspaces.com/equals_48_cyber_white_1_thumbnail_main-1700097763822.jpg", },
-// ]
 
 
-export default function ImageSlideShow({ small, images }: Props) {
-  const [image, setImage] = React.useState(images[0]),
+export default function ImageSlideShow({ small, images, setRenderedImage }: Props) {
+  const [image, setImage] = useStateCallback(images[0]),
     [myinterval, setMyinterval] = React.useState(false),
     [classes, setClasses] = React.useState("opacity-100")
+  // ban list is not state because its not used for rendering its only used for logic
+  let banList = [images[0].src]
 
   const getRandomImage = () => {
-    console.log("random")
-    const randomIndex = Math.floor(Math.random() * images.length)
-    setImage(images[randomIndex])
+    // clone the ban list so we are not modfiing the main var 
+    let tempBanList = [...banList]
+    // filter out all images we have used from our image array
+    const imageList = [...images].filter(image => !tempBanList.includes(image.src))
+    // get a random image 
+    const newImage = getRandomFromArray(imageList)
+    // push the new image to the ban list so it wont come upagain
+    tempBanList.push(newImage.src)
+
+
+    if (tempBanList.length > 3) {
+      // if we have more then 3 images remove the oldest one so it can pop up again
+      tempBanList.shift()
+    }
+    // save the work we have done to the ban list
+    banList = tempBanList
+    return newImage
   }
   const loop = () => {
     setTimeout(() => {
       setClasses("opacity-0")
     }, 9000);
     setTimeout(() => {
-      getRandomImage()
-      setClasses("opacity-100")
+      const newImage = getRandomImage()
 
-      loop()
+      requestAnimationFrame(() => {
+        setImage(newImage, () => {
+          setRenderedImage(newImage)
+          setTimeout(() => {
+            setClasses("opacity-100")
+            loop()
+          }, 400)
+
+        })
+
+      })
     }, 10000);
   }
   React.useEffect(

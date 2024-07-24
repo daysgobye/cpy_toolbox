@@ -41,3 +41,5 @@ export type MenuSection = {
   image: string,
   items: MenuItem[]
 }
+
+export type SlideShowImage = { productTitle: string, title: string, src: string }
