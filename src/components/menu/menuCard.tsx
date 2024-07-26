@@ -15,7 +15,7 @@ export default function MenuCard({ sections, moveToOos, type, slideShowImage }: 
 
 
   return (
-    <div className={`flex w-full h-full bg-white rounded-xl shadow-xl ${type !== 'Switches' && type !== 'Keycaps' ? 'p-10' : 'p-5'}`}>
+    <div className={`flex w-full h-full bg-slate-100 rounded-xl shadow-xl ${type !== 'Switches' && type !== 'Keycaps' ? 'p-10' : 'p-8'}`}>
       {sections.map((section, index) => (
         <MenuSectionView key={index} section={section} moveToOos={moveToOos} type={type} slideShowImage={slideShowImage} />
       ))}

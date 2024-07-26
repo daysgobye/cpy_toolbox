@@ -182,22 +182,22 @@ const switchProduct: MenuSection[][] = [
         price: 18
       },
       {
-        title: "?Choc Red",
-        description: "35g LP Linear",
+        title: "Choc Red",
+        description: "50g LP Linear",
         image: "lily58",
         inStock: true,
         price: 18
       },
       {
-        title: "?Choc Brown",
-        description: "35g LP Linear",
+        title: "Choc Brown",
+        description: "45g LP Tactile",
         image: "lily58",
         inStock: true,
         price: 18
       },
       {
-        title: "?Choc White",
-        description: "35g LP Linear",
+        title: "Choc White",
+        description: "50g LP Clicky",
         image: "lily58",
         inStock: true,
         price: 18
@@ -286,26 +286,6 @@ export default function MenuPage() {
     [keycapList, setKeycapList] = useState(keycapProduct),
     [renderedImageOne, setRenderedImageOne] = useState(subTopSlideshowImages[0]),
     [renderedImageTwo, setRenderedImageTwo] = useState(subBottomSlideshowImages[0])
-  // React.useEffect(() => {
-  //   const kcurrentData = localStorage.getItem("kmenu")
-  //   const scurrentData = localStorage.getItem("smenu")
-  //   const ccurrentData = localStorage.getItem("cmenu")
-  //   if (kcurrentData) {
-  //     setSolderableKits(JSON.parse(kcurrentData))
-  //   } else {
-  //     localStorage.setItem("kmenu", JSON.stringify(fr4Kits))
-  //   }
-  //   if (scurrentData) {
-  //     setSwitchList(JSON.parse(scurrentData))
-  //   } else {
-  //     localStorage.setItem("smenu", JSON.stringify(switchProduct))
-  //   }
-  //   if (ccurrentData) {
-  //     setSwitchList(JSON.parse(ccurrentData))
-  //   } else {
-  //     localStorage.setItem("cmenu", JSON.stringify(keycapProduct))
-  //   }
-  // }, [])
   const moveToOos = (title: string) => {
     const newMenue = solderableKits.map(sections => {
       return sections.map(section => {
@@ -323,7 +303,6 @@ export default function MenuPage() {
     localStorage.setItem("kmenu", JSON.stringify(solderableKits))
     setSolderableKits(newMenue)
   }
-
   const moveToOosSwitch = (title: string) => {
     const newMenue = switchList.map(sections => {
       return sections.map(section => {
@@ -358,9 +337,6 @@ export default function MenuPage() {
     localStorage.setItem("cmenu", JSON.stringify(keycapList))
     setSolderableKits(newMenue)
   }
-
-
-
   const reset = () => {
     localStorage.setItem("kmenu", JSON.stringify(fr4Kits))
     setSolderableKits(fr4Kits)
@@ -372,15 +348,14 @@ export default function MenuPage() {
   return (
     <>
 
-
-      <div className="flex fr4Kits menu_right bg-purple-100">
+      <div className="flex fr4Kits menu_right">
         {/* <NetBg /> */}
         <div className="flex aspect-video p-[5rem]">
           <div className="flex h-full flex-1 mr-[3.5rem]">
             {/* <PremiumProduct /> */}
             {solderableKits.map(section => <MenuCard sections={section} moveToOos={moveToOos} type='SolderableKits' slideShowImage={renderedImageOne} />)}
             <div
-              className="absolute w-[100px] h-[100px] bg-rose-500 opacity-0 hover:opacity-100	 "
+              className="absolute w-[100px] h-[100px] bg-rose-500 opacity-0 hover:opacity-100	"
               onClick={reset}
             >
               RESET MENUE
@@ -413,28 +388,6 @@ export default function MenuPage() {
 
     </>
 
-
-
-
-
-
-
-
-
-
-    //   <div className="menu_left">
-    //   {/* <NetBg /> */}
-    //   <div className="flex items-center justify-center h-screen ">
-    //     <ImageSlideShow />
-    //     {fr4Kits.map(section => <MenuCard sections={section} moveToOos={moveToOos} />)}
-    //   </div>
-    //   <div
-    //     className="absolute w-[100px] h-[100px] bg-rose-500 opacity-0 hover:opacity-100	 "
-    //     onClick={reset}
-    //   >
-    //     RESET MENUE
-    //   </div>
-    // </div>
   );
 }
 export const Head: HeadFC = () => <title>DC-32 fr4Kits</title>;

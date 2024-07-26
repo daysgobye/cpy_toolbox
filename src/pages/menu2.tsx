@@ -345,14 +345,6 @@ export default function MenuPage() {
     [switchList, setSwitchList] = useState(switchProduct),
     [keycapList, setKeycapList] = useState(keycapProduct),
     [renderedImage, setRenderedImage] = useState()
-  // React.useEffect(() => {
-  //   const currentData = localStorage.getItem("menu")
-  //   if (currentData) {
-  //     setMenu(JSON.parse(currentData))
-  //   } else {
-  //     localStorage.setItem("menu", JSON.stringify(menu))
-  //   }
-  // }, [])
   const moveToOos = (title: string) => {
     const newMenue = menu.map(sections => {
 
@@ -380,22 +372,17 @@ export default function MenuPage() {
   }
   return (
     <>
-
-
-
-
-
-      <div className="flex menu menu_center justify-center ">
+      <div className="flex justify-center">
         {/* <NetBg /> */}
-        <div className="flex aspect-video p-[5rem] bg-green-300 self-center justify-center flex-1 h-full">
-          <div className="center flex flex-col self-center bg-red-200 flex-1">
-            <div className="w-[200px] h-[200px]">
+        <div className="flex aspect-video p-[5rem] self-center justify-center flex-1 h-full">
+          <div className="center flex flex-col  items-center self-center flex-1">
+            <div className="w-[620px] h-[620px] mb-[6.2rem]">
               <svg id="Isolation_Mode" data-name="Isolation Mode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1793.07 1819.94">
-                <path id="Combined-Shape" className="cls-2 stroke-[0px] fill-[#805FF7]" d="M896.54,0c495.14,0,896.54,407.41,896.54,909.97s-401.39,909.97-896.54,909.97S0,1412.53,0,909.97,401.39,0,896.54,0ZM896.54,127.4c-425.82,0-771.02,350.37-771.02,782.57s345.2,782.57,771.02,782.57,771.02-350.37,771.02-782.57S1322.36,127.4,896.54,127.4Z" />
-                <ellipse id="Oval" className="cls-1 fill-[#98fce9] stroke-[0px]" cx="896.54" cy="909.97" rx="110.54" ry="112.2" />
+                <path id="Combined-Shape" className="cls-2 stroke-[0px] fill-[#A96CFF]" d="M896.54,0c495.14,0,896.54,407.41,896.54,909.97s-401.39,909.97-896.54,909.97S0,1412.53,0,909.97,401.39,0,896.54,0ZM896.54,89.25c-446.58,0-808.6,367.45-808.6,820.72s362.02,820.72,808.6,820.72,808.6-367.45,808.6-820.72S1343.12,89.25,896.54,89.25Z" />
+                <ellipse id="Oval" className="cls-1 fill-[#98FCE9] stroke-[0px]" cx="896.54" cy="909.97" rx="98.91" ry="100.39" />
               </svg>
             </div>
-            <div className="w-[150px]">
+            <div className="w-[900px]">
               <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1612.14 206.8">
                 <path className="cls-1 stroke-[0px] fill-[#000]" d="M63.58,8.8c11.73,0,21.12,3.38,28.16,10.12,7.04,6.75,10.56,15.84,10.56,27.28,0,6.02-1.21,11.85-3.63,17.49-2.42,5.65-5.98,10.3-10.67,13.97-4.7,3.67-10.49,5.8-17.38,6.38l-1.54-2.64c5.72,0,11.07.85,16.06,2.53,4.98,1.69,9.31,4.22,12.98,7.59,3.66,3.38,6.56,7.52,8.69,12.43,2.12,4.92,3.19,10.67,3.19,17.27,0,7.04-1.18,13.17-3.52,18.37-2.35,5.21-5.58,9.54-9.68,12.98-4.11,3.45-8.88,6.02-14.3,7.7-5.43,1.69-11.22,2.53-17.38,2.53H4.4c-1.18,0-2.2-.44-3.08-1.32-.88-.88-1.32-1.9-1.32-3.08V13.2c0-1.17.44-2.2,1.32-3.08.88-.88,1.9-1.32,3.08-1.32h59.18ZM62.48,17.6H6.82l2.42-4.18v69.74l-2.2-3.74h55.44c8.65-.14,15.91-3,21.78-8.58,5.86-5.57,8.8-13.86,8.8-24.86,0-8.5-2.64-15.36-7.92-20.57-5.28-5.2-12.83-7.81-22.66-7.81ZM64.02,88.44H8.36l.88-1.32v68.64l-1.1-1.76h55.88c10.41,0,19.14-2.6,26.18-7.81,7.04-5.21,10.56-13.53,10.56-24.97,0-7.62-1.62-13.86-4.84-18.7-3.23-4.84-7.63-8.39-13.2-10.67-5.58-2.27-11.81-3.41-18.7-3.41Z" />
                 <path className="cls-1 stroke-[0px] fill-[#000]" d="M239.8,107.36c0,10.86-2.35,20.64-7.04,29.37-4.7,8.73-11.11,15.62-19.25,20.68-8.14,5.06-17.42,7.59-27.83,7.59s-19.51-2.53-27.72-7.59c-8.21-5.06-14.71-11.95-19.47-20.68-4.77-8.72-7.15-18.51-7.15-29.37s2.38-20.86,7.15-29.59c4.76-8.72,11.25-15.62,19.47-20.68,8.21-5.06,17.45-7.59,27.72-7.59s19.69,2.53,27.83,7.59c8.14,5.06,14.55,11.96,19.25,20.68,4.69,8.73,7.04,18.59,7.04,29.59ZM231,107.36c0-9.53-1.95-18-5.83-25.41-3.89-7.4-9.24-13.27-16.06-17.6-6.82-4.32-14.63-6.49-23.43-6.49s-16.43,2.17-23.32,6.49c-6.9,4.33-12.32,10.2-16.28,17.6-3.96,7.41-5.94,15.88-5.94,25.41s1.98,17.79,5.94,25.19c3.96,7.41,9.38,13.28,16.28,17.6,6.89,4.33,14.66,6.49,23.32,6.49s16.61-2.16,23.43-6.49c6.82-4.32,12.17-10.19,16.06-17.6,3.88-7.4,5.83-15.8,5.83-25.19Z" />

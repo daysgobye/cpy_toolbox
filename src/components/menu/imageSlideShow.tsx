@@ -99,7 +99,7 @@ export default function ImageSlideShow({ small, images, setRenderedImage }: Prop
     }
   )
   return (
-    <div className={`relative ${classes} transition-all duration-1000 ease-in-out rounded-[1rem] overflow-hidden bg-red-700`}>
+    <div className={`relative ${classes} transition-all duration-1000 ease-in-out rounded-[1rem] overflow-hidden bg-red-700 rounded-xl shadow-xl`}>
       <img
         src={image.src}
         alt="keyboard"
