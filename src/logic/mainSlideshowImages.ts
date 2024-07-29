@@ -27,7 +27,7 @@ import unicorneLPYellow from '../images/menuImages/main_slideshow/unicorne_lp_sg
 //@ts-ignore
 import unicorneSGTented from '../images/menuImages/main_slideshow/unicorne_lp_silver_mbk_white.jpg'
 //@ts-ignore
-import unicorneCanvasClose from '../images/menuImages/main_slideshow/unicorne_mx_canvas_white_2.jpg'
+import unicorneCanvasClose from '../images/menuImages/main_slideshow/unicorne_mx_canvas_white_two.jpg'
 //@ts-ignore
 import unicorneCanvas from '../images/menuImages/main_slideshow/broken_unicorne.jpg'
 //@ts-ignore
@@ -99,7 +99,6 @@ export const mainImages = [
 
   { productTitle: "MBK Engage", title: 'MBK Engage', src: engageSplit },
   { productTitle: "DC32 Artisan", title: 'DC 32 Metal Artisan', src: dcArtisanSpread },
-  { productTitle: "Unicorne", title: 'Unicorne LP', src: corneRedHand },
   { productTitle: "lulu", title: 'Lulu', src: luluBlackTopDown },
   { productTitle: "lulu", title: 'Lulu', src: luluSkiidata },
   { productTitle: "lulu", title: 'Lulu', src: luluSkiidataGreenOut },
@@ -110,7 +109,9 @@ export const mainImages = [
   { productTitle: "Unicorne", title: 'Unicorne LP', src: unicorneRedClose },
   { productTitle: "Unicorne", title: 'Unicorne LP', src: unicorneLPYellow },
   { productTitle: "Unicorne", title: 'Unicorne LP', src: unicorneSGTented },
-  { productTitle: "Unicorne", title: 'Unicorne MX', src: unicorneCanvasClose },
+
+
+
   { productTitle: "Unicorne", title: 'Unicorne MX', src: unicorneCanvas },
   { productTitle: "Unicorne", title: 'Unicorne MX', src: unicorneMagicalYellow },
   { productTitle: "Unicorne", title: 'Unicorne MX', src: unicornePurpleTopDown },

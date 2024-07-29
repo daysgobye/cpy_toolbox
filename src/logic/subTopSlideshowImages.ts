@@ -28,19 +28,19 @@ import rechtekSilverBeigeTopDown from '../images/menuImages/sub_top_slideshow/7_
 import rechtekBlackDarkYellow from '../images/menuImages/sub_top_slideshow/7_25_colored_set/rechtek_black_dark_yellow_angle.jpg'
 
 export const subTopSlideshowImages = [
-  { productTitle: "", title: 'DC 32 Artisan', src: dcArtisanYellowMX },
-  { productTitle: "", title: 'Fightstick', src: fightstickRedAngle },
+  { productTitle: "DC 32 Artisan", title: 'DC 32 Artisan', src: dcArtisanYellowMX },
+  { productTitle: "Fightstick", title: 'Fightstick', src: fightstickRedAngle },
   { productTitle: "", title: 'Lulu SMT PCB', src: luluPCB },
-  { productTitle: "", title: 'Rechtek', src: rechtekSilverBeigeTopDown },
-  { productTitle: "", title: 'Rechtek', src: rechtekBlackDarkYellow },
+  { productTitle: "Rechtek", title: 'Rechtek', src: rechtekSilverBeigeTopDown },
+  { productTitle: "Rechtek", title: 'Rechtek', src: rechtekBlackDarkYellow },
 
 
-  { productTitle: "", title: 'Choc Brown', src: chocBrown },
-  { productTitle: "", title: 'Choc Purpz', src: chocPurpz },
-  { productTitle: "", title: 'Choc Red', src: chocRed },
-  { productTitle: "", title: 'Choc White', src: chocWhite },
-  { productTitle: "", title: 'Gat Blue', src: gatBlue },
-  { productTitle: "", title: 'Gat Brown', src: gatBrown },
-  { productTitle: "", title: 'Gat Clear', src: gatClear },
-  { productTitle: "", title: 'Gat Yellow', src: gatYellow }
+  { productTitle: "Choc Brown", title: 'Choc Brown', src: chocBrown },
+  { productTitle: "Choc Purpz", title: 'Choc Purpz', src: chocPurpz },
+  { productTitle: "Choc Red", title: 'Choc Red', src: chocRed },
+  { productTitle: "Choc White", title: 'Choc White', src: chocWhite },
+  { productTitle: "Gat Blue", title: 'Gat Blue', src: gatBlue },
+  { productTitle: "Gat Brown", title: 'Gat Brown', src: gatBrown },
+  { productTitle: "Gat Clear", title: 'Gat Clear', src: gatClear },
+  { productTitle: "Gat Yellow", title: 'Gat Yellow', src: gatYellow }
 ]

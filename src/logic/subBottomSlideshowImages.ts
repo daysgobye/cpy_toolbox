@@ -29,5 +29,5 @@ export const subBottomSlideshowImages = [
   { productTitle: "", title: 'MBK Engage', src: engageClose },
   { productTitle: "", title: 'Blank XDA', src: mainXDA },
   { productTitle: "", title: 'Blank MBK', src: mainMBK },
-  { productTitle: "", title: 'MBK Engage', src: engageClose },
+  // { productTitle: "", title: 'MBK Engage', src: engageClose },
 ]
