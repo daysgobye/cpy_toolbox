@@ -11,7 +11,8 @@ export default function print(props: any) {
     return (<div className="flex w-full flex-row flex-wrap justify-around p-[50px]">
 
         {StockItems.map((item) => (
-            <div className="w-1/4">
+            <div className="w-1/4 m-4 border-black border-2 break-after">
+
                 <p>{item.category}-{item.name}</p>
                 <Barcode value={item.id} />
             </div>
