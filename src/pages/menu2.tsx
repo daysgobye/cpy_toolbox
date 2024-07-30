@@ -24,9 +24,9 @@ export default function MenuPage() {
               </svg> */}
 
               <motion.svg
-                transition={{ ease: "easeInOut", duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                transition={{ ease: "easeInOut", duration: 5, repeat: Infinity, repeatDelay: 1 }}
                 animate={{
-                  y: ["0rem", "-4rem", "0rem"],
+                  y: ["0rem", "-1rem", "0rem"],
                 }}
                 id="Isolation_Mode" data-name="Isolation Mode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1793.07 1819.94">
                 <path id="Combined-Shape" className="cls-2 stroke-[0px] fill-[#A96CFF]" d="M896.54,0c495.14,0,896.54,407.41,896.54,909.97s-401.39,909.97-896.54,909.97S0,1412.53,0,909.97,401.39,0,896.54,0ZM896.54,89.25c-446.58,0-808.6,367.45-808.6,820.72s362.02,820.72,808.6,820.72,808.6-367.45,808.6-820.72S1343.12,89.25,896.54,89.25Z" />

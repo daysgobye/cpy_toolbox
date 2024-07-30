@@ -25,7 +25,6 @@ export default function MenuItemView({ item, moveToOos, type, slideShowImage }: 
     return (
       <div className="flex w-full  items-center bg-red-500 absolute skew-y-[-7deg]">
         <h2 className="font-bold text-xl text-white text-center w-full">SOLD OUT</h2>
-
       </div>
     )
   }
@@ -57,12 +56,14 @@ export default function MenuItemView({ item, moveToOos, type, slideShowImage }: 
           className={`border-b-[.18rem] border-indigo-500 border-dotted flex-1 mb-[.9rem] mx-[.35rem] ${type !== 'Switches' && type !== 'Keycaps' ? 'hidden' : ''} ${item.price === 1000 ? 'hidden' : ''}`}
         />
         <div
-          className="flex items-end
-         "
+          className={`flex items-end ${type === 'PremiumProducts' ? 'w-[140px]' : ''} ${type === 'SolderableKits' ? 'w-[80px] mb-[-.5rem]' : ''} ${type === 'Switches' || type === 'Keycaps' ? 'w-[55px]' : ''}`}
         >
           {/* <p className={`${type !== 'Switches' ? 'hidden' : ''}`}>testing</p> */}
-          <h4 className={`font-[300] text-[3.5rem] leading-[3.2rem] ${type === 'SolderableKits' ? 'text-[2.5rem] tracking-[-.05rem]' : ''} ${type === 'Switches' || type === 'Keycaps' ? 'text-[1.8rem] leading-[2.8rem] mb-[.2rem]' : ''} ${item.price === 1000 ? 'hidden' : ''}`}>
-            <span className={`${type === 'SolderableKits' ? 'mr-[-.35rem]' : ''}`}>$</span>{renderPrice()}
+          <h4 className={`font-[300] text-[3.5rem] leading-[3.2rem] w-full ${type === 'SolderableKits' ? 'text-[2.5rem] tracking-[-.05rem]' : ''} ${type === 'Switches' || type === 'Keycaps' ? 'text-[1.8rem] leading-[2.8rem] mb-[.2rem]' : ''} ${item.price === 1000 ? 'hidden' : ''}`}>
+            <div className={`flex justify-between w-full`}>
+              <span className={`${type === 'SolderableKits' ? 'mr-[-.35rem]' : ''}`}>$</span>{renderPrice()}
+            </div>
+
           </h4>
           {item.inStock === false && renderSoldOut()}
         </div>
