@@ -72,21 +72,23 @@ export default function MenuPage() {
   const [menu, setMenu] = useState(defaultData),
     [renderedImage, setRenderedImage] = useState(mainImages[0])
   const moveToOos = (title: string) => {
-    const newMenue = menu.map(sections => {
-      return sections.map(section => {
-        const newItems = section.items.map(item => {
-          if (item.title === title) {
-            return { ...item, inStock: !item.inStock }
-          } else {
-            return item
-          }
-        })
-        return { ...section, items: newItems }
-      }
-      )
-    })
-    localStorage.setItem("menu", JSON.stringify(menu))
-    setMenu(newMenue)
+    /* The commented out code block is attempting to update the stock status of an item in the menu based
+    on its title. Here's a breakdown of what each part of the code is doing: */
+    // const newMenue = menu.map(sections => {
+    //   return sections.map(section => {
+    //     const newItems = section.items.map(item => {
+    //       if (item.title === title) {
+    //         return { ...item, inStock: !item.inStock }
+    //       } else {
+    //         return item
+    //       }
+    //     })
+    //     return { ...section, items: newItems }
+    //   }
+    //   )
+    // })
+    // localStorage.setItem("menu", JSON.stringify(menu))
+    // setMenu(newMenue)
   }
   const reset = () => {
     localStorage.setItem("menu", JSON.stringify(defaultData))

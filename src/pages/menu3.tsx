@@ -287,63 +287,63 @@ export default function MenuPage() {
     [renderedImageOne, setRenderedImageOne] = useState(subTopSlideshowImages[0]),
     [renderedImageTwo, setRenderedImageTwo] = useState(subBottomSlideshowImages[0])
   const moveToOos = (title: string) => {
-    const newMenue = solderableKits.map(sections => {
-      return sections.map(section => {
-        const newItems = section.items.map(item => {
-          if (item.title === title) {
-            return { ...item, inStock: !item.inStock }
-          } else {
-            return item
-          }
-        })
-        return { ...section, items: newItems }
-      }
-      )
-    })
-    localStorage.setItem("kmenu", JSON.stringify(solderableKits))
-    setSolderableKits(newMenue)
+    // const newMenue = solderableKits.map(sections => {
+    //   return sections.map(section => {
+    //     const newItems = section.items.map(item => {
+    //       if (item.title === title) {
+    //         return { ...item, inStock: !item.inStock }
+    //       } else {
+    //         return item
+    //       }
+    //     })
+    //     return { ...section, items: newItems }
+    //   }
+    //   )
+    // })
+    // localStorage.setItem("kmenu", JSON.stringify(solderableKits))
+    // setSolderableKits(newMenue)
   }
   const moveToOosSwitch = (title: string) => {
-    const newMenue = switchList.map(sections => {
-      return sections.map(section => {
-        const newItems = section.items.map(item => {
-          if (item.title === title) {
-            return { ...item, inStock: !item.inStock }
-          } else {
-            return item
-          }
-        })
-        return { ...section, items: newItems }
-      }
-      )
-    })
-    localStorage.setItem("smenu", JSON.stringify(switchList))
-    setSwitchList(newMenue)
+    // const newMenue = switchList.map(sections => {
+    //   return sections.map(section => {
+    //     const newItems = section.items.map(item => {
+    //       if (item.title === title) {
+    //         return { ...item, inStock: !item.inStock }
+    //       } else {
+    //         return item
+    //       }
+    //     })
+    //     return { ...section, items: newItems }
+    //   }
+    //   )
+    // })
+    // localStorage.setItem("smenu", JSON.stringify(switchList))
+    // setSwitchList(newMenue)
   }
   const moveToOosKeycap = (title: string) => {
-    const newMenue = keycapList.map(sections => {
-      return sections.map(section => {
-        const newItems = section.items.map(item => {
-          if (item.title === title) {
-            return { ...item, inStock: !item.inStock }
-          } else {
-            return item
-          }
-        })
-        return { ...section, items: newItems }
-      }
-      )
-    })
-    localStorage.setItem("cmenu", JSON.stringify(keycapList))
-    setSolderableKits(newMenue)
+    // const newMenue = keycapList.map(sections => {
+    //   return sections.map(section => {
+    //     const newItems = section.items.map(item => {
+    //       if (item.title === title) {
+    //         return { ...item, inStock: !item.inStock }
+    //       } else {
+    //         return item
+    //       }
+    //     })
+    //     return { ...section, items: newItems }
+    //   }
+    //   )
+    // })
+    // localStorage.setItem("cmenu", JSON.stringify(keycapList))
+    // setSolderableKits(newMenue)
   }
   const reset = () => {
-    localStorage.setItem("kmenu", JSON.stringify(fr4Kits))
-    setSolderableKits(fr4Kits)
-    localStorage.setItem("cmenu", JSON.stringify(keycapProduct))
-    setKeycapList(keycapProduct)
-    localStorage.setItem("smenu", JSON.stringify(switchProduct))
-    setSwitchList(switchProduct)
+    // localStorage.setItem("kmenu", JSON.stringify(fr4Kits))
+    // setSolderableKits(fr4Kits)
+    // localStorage.setItem("cmenu", JSON.stringify(keycapProduct))
+    // setKeycapList(keycapProduct)
+    // localStorage.setItem("smenu", JSON.stringify(switchProduct))
+    // setSwitchList(switchProduct)
   }
   return (
     <>
