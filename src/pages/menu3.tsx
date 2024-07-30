@@ -26,84 +26,84 @@ const fr4Kits: MenuSection[][] = [
         description: "60% Split MX/LP Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 90
       },
       {
         title: "Corne MX",
         description: "40% Split MX Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 85
       },
       {
         title: "Corne LP",
         description: "40% Split LP Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 85
       },
       {
         title: "Fight Stick",
         description: "Controller/Fight Stick",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 40
       },
       {
         title: "Poker 60 LP",
         description: "60% LP Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 75
       },
       {
         title: "Equals 60",
         description: "60% Ortholinear Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 65
       },
       {
         title: "Equals 48",
         description: "40% Ortholinear Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 65
       },
       {
         title: "Reviung41",
         description: "40% One Piece Ergo Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 65
       },
       {
         title: "Sweep",
         description: "30% Split Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 80
       },
       {
         title: "Eternal Gaming Pad",
         description: "60% LP Keyboard",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 60
       },
       {
         title: "Phone Controller",
         description: "Mobile/Phone Controller",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 30
       },
       {
         title: "3x4 Macro Pad",
         description: "12 Key Macro Pad",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 40
       },
 
       ]
@@ -186,21 +186,21 @@ const switchProduct: MenuSection[][] = [
         description: "50g LP Linear",
         image: "lily58",
         inStock: true,
-        price: 18
+        price: 13
       },
       {
         title: "Choc Brown",
         description: "45g LP Tactile",
         image: "lily58",
         inStock: true,
-        price: 18
+        price: 13
       },
       {
         title: "Choc White",
         description: "50g LP Clicky",
         image: "lily58",
         inStock: true,
-        price: 18
+        price: 13
       },
 
       ]
@@ -228,21 +228,21 @@ const keycapProduct: MenuSection[][] = [
           description: "50g MX Linear",
           image: "lily58",
           inStock: true,
-          price: 90
+          price: 80
         },
         {
           title: "MBK Glow",
           description: "67g MX Clicky",
           image: "lily58",
           inStock: true,
-          price: 55
+          price: 50
         },
         {
           title: "Blank MBK",
           description: "45g MX Tactile",
           image: "lily58",
           inStock: true,
-          price: 16
+          price: 25
         },
         {
           title: "MX Keycaps",
@@ -256,7 +256,7 @@ const keycapProduct: MenuSection[][] = [
           description: "35g MX Linear",
           image: "lily58",
           inStock: true,
-          price: 16
+          price: 25
         },
         {
           title: "TKL Sets",

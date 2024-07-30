@@ -64,7 +64,7 @@
     },
     {
         "name": "LP 60 Kit",
-        "price": 70,
+        "price": 75,
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-ETERNAL_Keypad",
         "category": "kit",
         "id": "0900"
@@ -110,6 +110,20 @@
         "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
         "category": "premium product",
         "id": "1700"
+    },
+    {
+        "name": "Artisan mx",
+        "price": 45,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
+        "category": "premium product",
+        "id": "1800"
+    },
+    {
+        "name": "Artisan LP",
+        "price": 45,
+        "buildGuide": "https://new.boardsource.xyz/docs/build_guides-microdox",
+        "category": "premium product",
+        "id": "1900"
     },
     {
         "name": "Gattron Yellow",

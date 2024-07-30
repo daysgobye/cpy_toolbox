@@ -18,49 +18,50 @@ const defaultData: MenuSection[][] = [
         description: "60% Low Profile BLE",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 185
       },
       {
         title: "lulu",
         description: "60% Split",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 280
       },
       {
         title: "Unicorne",
         description: "40% Split",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 225
       },
       {
         title: "Crab Broom",
         description: "30% Split",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 145
+
       },
       {
         title: "Equals Ortho",
         description: "40% / 60% Ortholinear",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 220
       },
       {
         title: "Technikable",
         description: "40% Low Profile BLE",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 150
       },
       {
         title: "DC32 Artisan",
         description: "Aluminum Artisan Keycap",
         image: "lily58",
         inStock: true,
-        price: 180
+        price: 45
       },
       ]
     }
