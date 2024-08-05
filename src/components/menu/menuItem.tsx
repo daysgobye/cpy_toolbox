@@ -42,7 +42,7 @@ export default function MenuItemView({ item, moveToOos, type, slideShowImage }: 
       <div className={`flex first:mt-[-1.2rem] ${type === 'SolderableKits' ? 'first:mt-[-.75rem]' : ''}`}>
         <div className={`flex flex-col ${type !== 'Switches' && type !== 'Keycaps' ? 'flex-1' : ''}`}>
           <span className="flex relative self-start">
-            <h2 className={`font-[500] text-[3.25rem] mb-0 ${type === 'SolderableKits' ? 'text-[2.1rem] font-[500] mb-[-.6rem]' : ''} ${type === 'Switches' || type === 'Keycaps' ? 'text-[1.6rem] font-[400] tracking-[-.05rem]' : ''} ${item.price === 1000 ? 'text-[2.1rem] font-[600] mt-[.75rem] mb-[.5rem]' : ''} ${item.price === 1000 && type === 'Switches' ? '' : ''}`} >{item.title}</h2> {renderImageBeingShow()}
+            <h2 className={`font-[600] text-[3.25rem] mb-0 ${type === 'SolderableKits' ? 'text-[2.1rem] font-[600] mb-[-.6rem]' : ''} ${type === 'Switches' || type === 'Keycaps' ? 'text-[1.6rem] font-[400] tracking-[-.05rem]' : ''} ${item.price === 1000 ? 'text-[2.1rem] font-[600] mt-[.75rem] mb-[.5rem]' : ''} ${item.price === 1000 && type === 'Switches' ? '' : ''}`} >{item.title}</h2> {renderImageBeingShow()}
           </span>
           <div className="bottom flex">
             <h4 className={`text-[1.65rem] leading-[2.1rem] ${type === 'SolderableKits' ? 'text-[1.5rem] font-[400]' : ''} ${type === 'Switches' || type === 'Keycaps' ? 'hidden' : ''}`}>{item.description}</h4>
