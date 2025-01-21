@@ -115,7 +115,7 @@ export default function CardMaker() {
                     <div className="row" key={card.id}>
                         {[...Array.from({ length: card.count }, () => card)].map((c, i) => (
 
-                            <div className="border border-black p-4 m-4 w-[200px] break-inside-avoid	"
+                            <div className="border border-black p-4 m-4 w-[200px] break-inside-avoid h-[300px]	"
                                 key={`${c.id}-${i}`}
                             >
                                 <p className="text-xl">
